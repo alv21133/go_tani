@@ -116,6 +116,9 @@ $resultJson2 = json_decode($resp2, true);
 echo "<br><br>";
 print_r($resultJson2);
 
+echo "<br><br>";
+
+echo "hasil evaluasi google =" .$resultJson2["results"][0]["elevation"];
 
 
 ?>
