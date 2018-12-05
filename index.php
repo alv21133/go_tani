@@ -40,16 +40,16 @@
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav ml-auto">
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#about">About</a>
+              <a class="nav-link js-scroll-trigger" href="#about">ketentuan</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#services">Services</a>
+              <a class="nav-link js-scroll-trigger" href="#services">Fitur</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#portfolio">Portfolio</a>
+              <a class="nav-link js-scroll-trigger" href="#portfolio">Galleri</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#contact">Contact</a>
+              <a class="nav-link js-scroll-trigger" href="#contact">Tentang</a>
             </li>
           </ul>
         </div>
@@ -60,14 +60,14 @@
       <div class="container my-auto">
         <div class="row">
           <div class="col-lg-10 mx-auto">
-            <h1 class="text-uppercase">
-              <strong>Your Favorite Source of Free Bootstrap Themes</strong>
+            <h1 class="text-uppercase" >
+              <strong>MARI BERTANI MODEREN DENGAN HASIL yang MAKSIMAL</strong>
             </h1>
             <hr>
           </div>
           <div class="col-lg-8 mx-auto">
-            <p class="text-faded mb-5">Start Bootstrap can help you build better websites using the Bootstrap CSS framework! Just download your template and start going, no strings attached!</p>
-            <a class="btn btn-primary btn-xl js-scroll-trigger" href="#about">Find Out More</a>
+            <p class="text-faded mb-5">Temukan tanaman yang tepat untuk di tanam di lahan yang anda miliki dengan menggunakan teknilogi farward chaining dari kami</p>
+            <a class="btn btn-primary btn-xl js-scroll-trigger" href="#about">MULAI SEKARANG</a>
           </div>
         </div>
       </div>
@@ -77,10 +77,10 @@
       <div class="container">
         <div class="row">
           <div class="col-lg-8 mx-auto text-center">
-            <h2 class="section-heading text-white">We've got what you need!</h2>
+            <h2 class="section-heading text-white">Pastikan Fitur Lokasi Aktif Pada Browser</h2>
             <hr class="light my-4">
-            <p class="text-faded mb-4">Start Bootstrap has everything you need to get your new website up and running in no time! All of the templates and themes on Start Bootstrap are open source, free to download, and easy to use. No strings attached!</p>
-            <a class="btn btn-light btn-xl js-scroll-trigger" href="#services">Get Started!</a>
+            <p class="text-faded mb-4">Kami akan mengaksi lokasi anda melalui browser yang anda guakan. Pastikan anda mengijinkan pengaksesan lokasi Pada browser anda  pada saat kotak dialog muncul. </p>
+            <a class="btn btn-light btn-xl js-scroll-trigger" href="input.php">Paham dan Lanjutkan</a>
           </div>
         </div>
       </div>
@@ -90,7 +90,7 @@
       <div class="container">
         <div class="row">
           <div class="col-lg-12 text-center">
-            <h2 class="section-heading">At Your Service</h2>
+            <h2 class="section-heading">Alur Layanan Kami</h2>
             <hr class="my-4">
           </div>
         </div>
@@ -100,28 +100,28 @@
           <div class="col-lg-3 col-md-6 text-center">
             <div class="service-box mt-5 mx-auto">
               <i class="fas fa-4x fa-gem text-primary mb-3 sr-icon-1"></i>
-              <h3 class="mb-3">Sturdy Templates</h3>
+              <h3 class="mb-3">Analisis Lokasi Anda</h3>
               <p class="text-muted mb-0">Our templates are updated regularly so they don't break.</p>
             </div>
           </div>
           <div class="col-lg-3 col-md-6 text-center">
             <div class="service-box mt-5 mx-auto">
               <i class="fas fa-4x fa-paper-plane text-primary mb-3 sr-icon-2"></i>
-              <h3 class="mb-3">Ready to Ship</h3>
+              <h3 class="mb-3">Isi Semua Form</h3>
               <p class="text-muted mb-0">You can use this theme as is, or you can make changes!</p>
             </div>
           </div>
           <div class="col-lg-3 col-md-6 text-center">
             <div class="service-box mt-5 mx-auto">
               <i class="fas fa-4x fa-code text-primary mb-3 sr-icon-3"></i>
-              <h3 class="mb-3">Up to Date</h3>
+              <h3 class="mb-3">Temukan Tanaman</h3>
               <p class="text-muted mb-0">We update dependencies to keep things fresh.</p>
             </div>
           </div>
           <div class="col-lg-3 col-md-6 text-center">
             <div class="service-box mt-5 mx-auto">
               <i class="fas fa-4x fa-heart text-primary mb-3 sr-icon-4"></i>
-              <h3 class="mb-3">Made with Love</h3>
+              <h3 class="mb-3">Save Hasil Analisis</h3>
               <p class="text-muted mb-0">You have to make your websites with love these days!</p>
             </div>
           </div>
@@ -237,7 +237,7 @@
       <div class="container">
         <div class="row">
           <div class="col-lg-8 mx-auto text-center">
-            <h2 class="section-heading">Let's Get In Touch!</h2>
+            <h2 class="section-heading">Kelompok GO_TANI</h2>
             <hr class="my-4">
             <p class="mb-5">Ready to start your next project with us? That's great! Give us a call or send us an email and we will get back to you as soon as possible!</p>
           </div>

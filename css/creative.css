@@ -178,9 +178,13 @@ img::-moz-selection {
 header.masthead {
   padding-top: 10rem;
   padding-bottom: calc(10rem - 56px);
-  background-image: url("../img/header.jpg");
+  background-image: url("../img/maps.jpg");
   background-position: center center;
   background-size: cover;
+}
+
+header.masthead background-image{
+  filter: blur(5px);
 }
 
 header.masthead hr {

@@ -57,7 +57,7 @@ while ($row_curah_hujan = mysqli_fetch_assoc($result_curah_hujan)) {
 		$param_suhu = "s03";
 	} elseif ($suhu > $rows_suhu[3]["min_suhu"] && $suhu < $rows_suhu[3]["max_suhu"]) {
 		$param_suhu = "s04";
-	}
+	} 
 
 	if ($tanah > $rows_tanah[0]["ph_min"] && $tanah < $rows_tanah[0]["ph_max"]) {
 		$param_tanah = "t01";
@@ -95,7 +95,14 @@ echo $param_tinggi;
 $result = mysqli_query($dbkonek, "SELECT * FROM tanaman WHERE 
 						ketinggian = '$param_tinggi' AND
 						jenis_tanah = '$param_tanah' AND
-						curah_hujan = '$param_hujan' OR
+						curah_hujan = '$param_hujan' AND
+						suhu = '$param_suhu'
+
+						") ;
+$hasil =$dbkonek->query("SELECT * FROM tanaman WHERE 
+						ketinggian = '$param_tinggi' AND
+						jenis_tanah = '$param_tanah' AND
+						curah_hujan = '$param_hujan' AND
 						suhu = '$param_suhu'
 
 						") ;
@@ -114,3 +121,48 @@ foreach ($rows_result as $r) {
 
 
 ?>
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title> GO_TANI</title>
+	<link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.grid.min.css">
+</head>
+<body>
+	<div class="table-responsive-sm">
+		  <table class="table table-hover">
+		  	 <thead>
+					<tr>
+						<th scope="col">id</th>
+						<th scope="col">no</th>
+						 <th scope="col">Tanaman</th>
+						 <th scope="col">Waktu Panen</th>
+						 <th scope="col">Harga Pasar</th>
+					 </tr>
+				</thead>
+						  <tbody>
+		  		<?php
+
+		  			while ($data=mysqli_fetch_array($hasil)) {
+		  				$q++;
+		  				?>
+						    
+						    <tr>
+						    	<td><?php echo $q ?></td>
+						       <td><?php echo $data['id_tanaman'] ?></td>
+						      <td><?php echo $data['nama'] ?></td>
+						      <td><?php echo $data['waktu_panen'] ?></td>
+						      <td><?php echo $data['harga'] ?></td>
+						      
+						    </tr>
+				 <?php
+					}
+				 ?>
+						     </tbody>
+						  </table>
+					
+	</div>
+
+</body>
+</html>
