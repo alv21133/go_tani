@@ -228,8 +228,9 @@
 
     <section class="bg-dark text-white">
       <div class="container text-center">
-        <h2 class="mb-4">Free Download at Start Bootstrap!</h2>
-        <a class="btn btn-light btn-xl sr-button" href="http://startbootstrap.com/template-overviews/creative/">Download Now!</a>
+        <h2 class="mb-4">Kritik dan Saran </h2>
+        <h6 class="mb-4">Saran dari anda sangat membantu kami dalam pengembangan aplikasi in juga sebagai bahan evaluasi dari kami untuk kebaikan kedepanya. Kami harap saran yang anda berikan merupakan saran yang membangun dan berkualitas </h6>
+        <a class="btn btn-light btn-xl sr-button" href="http://startbootstrap.com/template-overviews/creative/">Tulis Saran</a>
       </div>
     </section>
 
@@ -239,10 +240,16 @@
           <div class="col-lg-8 mx-auto text-center">
             <h2 class="section-heading">Kelompok GO_TANI</h2>
             <hr class="my-4">
-            <p class="mb-5">Ready to start your next project with us? That's great! Give us a call or send us an email and we will get back to you as soon as possible!</p>
+            <p class="mb-5">Kelompok final project pemrograman web lanjut , sed do eiusmod
+            tempor incididunt ut labore et dolore magna aliqua. </p>
           </div>
         </div>
         <div class="row">
+          <div class="col-lg-4 ml-auto text-center">
+            <i class="fas fa-phone fa-3x mb-3 sr-contact-1"></i>
+            <p>123-456-6789</p>
+          </div>
+
           <div class="col-lg-4 ml-auto text-center">
             <i class="fas fa-phone fa-3x mb-3 sr-contact-1"></i>
             <p>123-456-6789</p>

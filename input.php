@@ -14,8 +14,16 @@
 
     <!-- Custom fonts for this template -->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href="vendor/fontawesome-free/css/regular.min.css" rel="stylesheet" type="text/css">
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
+
+    <!-- Plugin CSS -->
+    <link href="vendor/magnific-popup/magnific-popup.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="css/creative.min.css" rel="stylesheet">
+
 
     <!-- Plugin CSS -->
     <link href="vendor/magnific-popup/magnific-popup.css" rel="stylesheet">
@@ -38,8 +46,38 @@
                       }
     </style>
   </head>
-                <body>
+                <body id="page-top">
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+      <div class="container">
+        <a class="navbar-brand js-scroll-trigger" href="index.php">Go_tani </a>
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="#about">ketentuan</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="#services">Fitur</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="#portfolio">Galleri</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="#contact">Tentang</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
 
+
+
+
+
+                  <!--   goolemap -->
                 <body>
                     <div id="map"></div>
                     <script>
@@ -70,6 +108,7 @@
                                 infoWindow.setContent('Lokasi Anda !');
                                 infoWindow.open(map);
                                 map.setCenter(pos);
+                                
 
                                 document.cookie = "latitude = " + latitude;
                                 document.cookie = "longtitude = " + longtitude;
@@ -145,11 +184,85 @@ echo "hasil evaluasi google =" .$resultJson2["results"][0]["elevation"];
 $suhu=round( $resultJson["main"]["temp"]-273.15,2) ;
 $ketinggian=round( $resultJson2["results"][0]["elevation"]/10,2) ;
  // satuan suhu kelvin
+    $hujan=$dbkonek->query("select * from curah_hujan");
+    $tanah=$dbkonek->query("select * from tanah");
 ?>
 
                     <script async defer
                         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBSHhSMyxh3XrHskeQN40xbTNt2WMQzW94&callback=initMap">
                     </script>
+
+
+                    <section id="services">
+                      <div class="container">
+                        <div class="row">
+                          <div class="col-lg-12 text-center">
+                            <h2 class="section-heading">Pastikan Data Sesuai Lokasi Anda </h2>
+                            <hr class="my-4">
+                          </div>
+                        </div>
+                      </div>
+                      <div class="container">
+                        <div class="row">
+                          <div class="col-lg-3 col-md-6 text-center">
+                            <div class="service-box mt-5 mx-auto">
+                              <i class="fas fa-4x fa-thermometer-three-quarters text-primary mb-3 sr-icon-1"></i>
+                              <h3 class="mb-3">Suhu Lokasi Anda</h3>
+                                      <h2 class="text-muted mb-0">
+                                      <?php echo $suhu?> C
+                                     </h2>
+                            </div>
+                          </div>
+                          <div class="col-lg-3 col-md-6 text-center">
+                            <div class="service-box mt-5 mx-auto">
+                              <i class="fas fa-4x fa-map-marked-alt text-primary mb-3  sr-icon-2"></i>
+                              <h3 class="mb-3">Ketinggian Anda :</h3>
+                                <h2  class="text-muted mb-0"><?php echo $ketinggian?> Mdpl</h2>
+                            </div>
+                          </div>
+                          <div class="col-lg-3 col-md-6 text-center">
+                            <div class="service-box mt-5 mx-auto">
+                              <i class="fas fa-4x fa-cloud-showers-heavy text-primary mb-3 sr-icon-3"></i>
+                              <h3 class="mb-3">Curah Hujan</h3>
+                              <p class="text-muted mb-0">
+                                  <select class="form-control form-control-lg">
+                                    
+                                    <?php while ($data=mysqli_fetch_array($hujan)) {
+                                   ?>
+                                        <option value="<?php echo$data['kategori'] ?>"><?php echo $data['kategori']; ?></option>
+                                    <?php
+                                    } 
+                                    ?>
+                                      
+                                   </select>
+                              </p>
+                            </div>
+                          </div>
+                          <div class="col-lg-3 col-md-6 text-center">
+                            <div class="service-box mt-5 mx-auto">
+                              <i class="fas fa-4x fa-microscope text-primary mb-3 sr-icon-4"></i>
+                              <h3 class="mb-3">Ph tanah</h3>
+                              <p class="text-muted mb-0">
+                                  <select class="form-control form-control-lg">
+                                    <?php
+                                    while ($data_h=mysqli_fetch_array($tanah)) {
+                                        ?>
+                                        <option><?php echo $data_h['kategori']; ?></option>
+                                    <?php
+                                    }
+                                    ?>
+                                      
+                                   </select>
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </section>
+
+
+
+
 
                     <form action="analis.php" method="POST">
                         <div class="row" style="margin: 1rem">
@@ -175,6 +288,21 @@ $ketinggian=round( $resultJson2["results"][0]["elevation"]/10,2) ;
                         </div >
                                     <input type="submit"  name="submit">
                      </form>
+
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+    <script src="vendor/scrollreveal/scrollreveal.min.js"></script>
+    <script src="vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
+
+    <!-- Custom scripts for this template -->
+    <script src="js/creative.min.js"></script>
+
+
                 </body>
 
 </html>

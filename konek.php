@@ -10,7 +10,7 @@ if ($dbkonek->connect_error) {
 	echo "koneksi gagal";	# code...
 }else
 {
-	echo " Database cenected ";
+	//echo " Database cenected ";
 }
 
 ?>
