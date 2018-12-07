@@ -1,6 +1,12 @@
 <?php
   include_once 'konek.php';
   include_once 'analis.php';
+
+  $analisis = analisis($_POST);
+  var_dump($analisis);
+  
+
+  
 ?>
 
 
@@ -299,7 +305,7 @@ if (!$suhu==-273.15) {
 
 
  <?php 
-                  $tanaman=$dbkonek->query("select * from tanaman");
+                  $tanaman=$dbkonek->query("select * from tanaman WHERE  ketinggian = '$analisis[tinggi]' AND jenis_tanah = '$analisis[tanah]' OR curah_hujan = '$analisis[hujan]' OR suhu = '$analisis[suhu]'");
                       while ($data=mysqli_fetch_array($tanaman)){
 
                       ?>

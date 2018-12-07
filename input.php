@@ -163,11 +163,11 @@ if (!$suhu==-273.15) {
                           </div>
                         </div>
                       </div>
-                      <div class="container">
-                        <div class="row">
-                        <form action="analis.php" method="get">
-                          <input type="text" id="lat" name="latitude">
-                          <input type="text" id="long" name="longtitude">
+                        <form action="hasil.php" method="post">
+                        <div class="container">
+                          <div class="row">
+                          <input type="text" id="lat" name="latitude" >
+                            <input type="text" id="long" name="longtitude" >
                           <div class="col-lg-3 col-md-6 text-center">
                             <div class="service-box mt-5 mx-auto">
                               <i class="fas fa-4x fa-thermometer-three-quarters text-primary mb-3 sr-icon-1"></i>
@@ -192,7 +192,16 @@ if (!$suhu==-273.15) {
                                   <select class="form-control form-control-lg" name="hujan">
                                     
                                     <?php while ($data=mysqli_fetch_array($hujan)) {
+
+                                      if (($data['hujan_max']+$data['hujan_min'])/2 == 225.5) {
+                                        ?>
+                                                 <option value="<?= ($data['hujan_max']+$data['hujan_min'])/2;?>" selected><?php echo $data['kategori']; ?> (<?= $data['hujan_max'] ?> - <?=$data['hujan_min'];?>)</option>
+                                        <?php
+                                      }
+
                                     ?>
+
+                                        
                                         <option value="<?= ($data['hujan_max']+$data['hujan_min'])/2;?>"><?php echo $data['kategori']; ?> (<?= $data['hujan_max'] ?> - <?=$data['hujan_min'];?>)</option>
                                     <?php
                                     } 
@@ -210,9 +219,12 @@ if (!$suhu==-273.15) {
                                   <select class="form-control form-control-lg" name="tanah">
                                     <?php
                                     while ($data_h=mysqli_fetch_array($tanah)) {
-                                        ?>
+                                        if (($data_h['ph_max']+$data_h['ph_min'])/2 == 7.05) { ?>
+                                          <option value="<?= ($data_h['ph_max']+$data_h['ph_min'])/2;?>" selected><?php echo $data_h['kategori']; ?> - <?= ($data_h['ph_max']+$data_h['ph_min'])/2;?></option>
+                                        <?php } else { ?>
                                         <option value="<?= ($data_h['ph_max']+$data_h['ph_min'])/2;?>"><?php echo $data_h['kategori']; ?> - <?= ($data_h['ph_max']+$data_h['ph_min'])/2;?></option>
-                                    <?php
+                                        <?php
+                                        }
                                     }
                                     ?>
                                       
@@ -220,12 +232,13 @@ if (!$suhu==-273.15) {
                               </p>
                             </div>
                           </div>
-                          <button type="submit" name="submit">submit</button>
+                          <button type="submit" name="submit" class="btn btn-light btn-xl sr-button " >submit</button>
+                         </div>  <!--  raw -->
+                      </div>     <!-- container -->
                           </form>
-                        </div>
-                      </div>
+                        
                     </section>
-                    <form action="analis.php" method="get">
+                    <form action="hasil.php" method="post">
                     <!-- Inputan latitude dan Longtitude hidden -->
                       
                         

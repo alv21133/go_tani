@@ -3,12 +3,19 @@ include_once("konek.php");
 	
 function analisis ($data) {
 
+	if (empty($data['latitude']) || empty($data['longtitude'])) {
+		echo "<script>
+			alert('Inputan tidak lengkap');
+			window.location.assign('input.php');
+		</script>";
+	}
 	global $dbkonek;
 	$tanah = $data['tanah'];
 	$hujan = $data['hujan'];
 	$lat = $data['latitude'];
 	$long = $data['longtitude'];
 
+	 
 	$curl2 = curl_init();
 	// Set some options - we are passing in a useragent too here
 	curl_setopt_array($curl2, array(
@@ -117,7 +124,9 @@ function analisis ($data) {
 	$rows['suhu'] = $param_suhu;
 	$rows['tanah'] = $param_tanah;
 	$rows['tinggi'] = $param_tinggi;
-
+	
+	
 	return $rows;
+	
 	}
 ?>
