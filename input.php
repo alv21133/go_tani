@@ -38,6 +38,10 @@
                         #map {
                             height: 100%;
                       }
+
+                      #top {
+                        height: 100%;
+                      }
                       /* Optional: Makes the sample page fill the window. */
       html, body {
                             height: 100%;
@@ -72,70 +76,17 @@
         </div>
       </div>
     </nav>
-
-
-
-
-
-                  <!--   goolemap -->
-                <body>
-                    <div id="map"></div>
-                    <script>
-                        // Note: This example requires that you consent to location sharing when
-                        // prompted by your browser. If you see the error "The Geolocation service
-                        // failed.", it means you probably did not give permission for the browser to
-                        // locate you.
-                        var map, infoWindow;
-      function initMap() {
-                            map = new google.maps.Map(document.getElementById('map'), {
-                                center: { lat: -34.397, lng: 150.644 },
-                                zoom: 6
-                            });
-                        infoWindow = new google.maps.InfoWindow;
-                
-                        // Try HTML5 geolocation.
-        if (navigator.geolocation) {
-                            navigator.geolocation.getCurrentPosition(function (position) {
-                                var pos = {
-                                    lat: position.coords.latitude,
-                                    lng: position.coords.longitude
-                                };
-                                
-                                var latitude = position.coords.latitude;
-                                var longtitude = position.coords.longitude;
-
-                                infoWindow.setPosition(pos);
-                                infoWindow.setContent('Lokasi Anda !');
-                                infoWindow.open(map);
-                                map.setCenter(pos);
-                                
-
-                                document.cookie = "latitude = " + latitude;
-                                document.cookie = "longtitude = " + longtitude;
-                            }, function () {
-                                handleLocationError(true, infoWindow, map.getCenter());
-                            });
-                        } else {
-                            // Browser doesn't support Geolocation
-                            handleLocationError(false, infoWindow, map.getCenter());
-                        }
-                      }
-                
-      function handleLocationError(browserHasGeolocation, infoWindow, pos) {
-                            infoWindow.setPosition(pos);
-                        infoWindow.setContent(browserHasGeolocation ?
-                                              'Error: Lokasi tidak ditemukan, periksa perizinan pengaksesan lokasi.' :
-                                              'Error: Browser anda tidak mendukung geolocation, periksa gps anda.');
-                        infoWindow.open(map);
-                      }  
-                      
-                      
-                      //evaluation maps 
-                      
-
-
-
-            </script>
+    <!--   goolemap -->
+    <body>
+    <div id="top" class="container">
+      <div class="row justify-content-center">
+        <h1>Selamat Datang, User</h1><br>
+        <h3>Untuk dapat menggunakan layanan JAGO TANI</h3>
+        <h3>Silahkan klik tombol dibawah ini untuk mendapatkan lokasi anda</h3>
+        <a class="btn btn-primary col align-self-center" href="#map" role="button" onclick="getLocation()">Link</a>
+      </div>
+    </div>
+    <div id="map"></div>
             
 <?php
 
@@ -183,7 +134,7 @@ echo "<br><br>";
 echo "hasil evaluasi google =" .$resultJson2["results"][0]["elevation"];
 $suhu=round( $resultJson["main"]["temp"]-273.15,2) ;
 $ketinggian=round( $resultJson2["results"][0]["elevation"]/10,2) ;
- // satuan suhu kelvin
+// satuan suhu kelvin
     $hujan=$dbkonek->query("select * from curah_hujan");
     $tanah=$dbkonek->query("select * from tanah");
 ?>
@@ -210,7 +161,7 @@ $ketinggian=round( $resultJson2["results"][0]["elevation"]/10,2) ;
                               <h3 class="mb-3">Suhu Lokasi Anda</h3>
                                       <h2 class="text-muted mb-0">
                                       <?php echo $suhu?> C
-                                     </h2>
+                                      </h2>
                             </div>
                           </div>
                           <div class="col-lg-3 col-md-6 text-center">
@@ -228,7 +179,7 @@ $ketinggian=round( $resultJson2["results"][0]["elevation"]/10,2) ;
                                   <select class="form-control form-control-lg">
                                     
                                     <?php while ($data=mysqli_fetch_array($hujan)) {
-                                   ?>
+                                    ?>
                                         <option value="<?php echo$data['kategori'] ?>"><?php echo $data['kategori']; ?></option>
                                     <?php
                                     } 
@@ -259,12 +210,12 @@ $ketinggian=round( $resultJson2["results"][0]["elevation"]/10,2) ;
                         </div>
                       </div>
                     </section>
-
-
-
-
-
-                    <form action="analis.php" method="POST">
+                    <form action="analis.php" method="get">
+                    <!-- Inputan latitude dan Longtitude hidden -->
+                      
+                        <input type="text" id="lat" name="latitude">
+                        <input type="text" id="long" name="longtitude">
+                      
                         <div class="row" style="margin: 1rem">
                               <label class="col-md-2"for="ketinggian">Ph Tanah</label>
                             <div class="col-md-4">
@@ -301,6 +252,7 @@ $ketinggian=round( $resultJson2["results"][0]["elevation"]/10,2) ;
 
     <!-- Custom scripts for this template -->
     <script src="js/creative.min.js"></script>
+    <script src="js/script_maps.js"></script>
 
 
                 </body>
