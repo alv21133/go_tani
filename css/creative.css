@@ -228,6 +228,10 @@ header.masthead p {
   max-width: 400px;
 }
 
+header.masthead.hasil{
+  background-image: url("../img/portfolio/thumbnails/5.jpg");
+}
+
 .portfolio-box {
   position: relative;
   display: block;
