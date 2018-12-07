@@ -36,7 +36,7 @@
                         /* Always set the map height explicitly to define the size of the div
                          * element that contains the map. */
                         #map {
-                            height: 100%;
+                            height: 90%;
                       }
 
                       #top {
@@ -78,14 +78,22 @@
     </nav>
     <!--   goolemap -->
     <body>
-    <div id="top" class="container">
-      <div class="row justify-content-center">
-        <h1>Selamat Datang, User</h1><br>
-        <h3>Untuk dapat menggunakan layanan JAGO TANI</h3>
-        <h3>Silahkan klik tombol dibawah ini untuk mendapatkan lokasi anda</h3>
-        <a class="btn btn-primary col align-self-center" href="#map" role="button" onclick="getLocation()">Link</a>
+    <header class="masthead text-center text-white d-flex">
+      <div class="container my-auto">
+        <div class="row">
+          <div class="col-lg-10 mx-auto">
+            <h1 class="text-uppercase" >
+              <strong>MARI BERTANI MODEREN DENGAN HASIL yang MAKSIMAL</strong>
+            </h1>
+            <hr>
+          </div>
+          <div class="col-lg-8 mx-auto">
+            <p class="text-faded mb-5">Temukan tanaman yang tepat untuk di tanam di lahan yang anda miliki dengan menggunakan teknilogi farward chaining dari kami</p>
+            <a class="btn btn-primary btn-xl js-scroll-trigger" href="#map" onclick="getLocation()">MULAI SEKARANG</a>
+          </div>
+        </div>
       </div>
-    </div>
+    </header>
     <div id="map"></div>
             
 <?php
@@ -112,23 +120,23 @@ curl_close($curl);
 $resultJson = json_decode($resp, true);
 print_r($resultJson);
 
-$curl2 = curl_init();
-// Set some options - we are passing in a useragent too here
-curl_setopt_array($curl2, array(
-    CURLOPT_RETURNTRANSFER => 1,
-    CURLOPT_URL => 'https://maps.googleapis.com/maps/api/elevation/json?locations=39.7391536,-104.9847034&key=AIzaSyDS36n8mVUcxPAMUcTSptdG8k_vZ-TcdjQ',
-    CURLOPT_USERAGENT => 'Codular Sample cURL Request'
-));
-// Send the request & save response to $resp
-$resp2 = curl_exec($curl2);
-// Close request to clear up some resources
-curl_close($curl2);
+// $curl2 = curl_init();
+// // Set some options - we are passing in a useragent too here
+// curl_setopt_array($curl2, array(
+//     CURLOPT_RETURNTRANSFER => 1,
+//     CURLOPT_URL => 'https://maps.googleapis.com/maps/api/elevation/json?locations=39.7391536,-104.9847034&key=AIzaSyDS36n8mVUcxPAMUcTSptdG8k_vZ-TcdjQ',
+//     CURLOPT_USERAGENT => 'Codular Sample cURL Request'
+// ));
+// // Send the request & save response to $resp
+// $resp2 = curl_exec($curl2);
+// // Close request to clear up some resources
+// curl_close($curl2);
 
-$resultJson2 = json_decode($resp2, true);
-echo "<br><br>";
-print_r($resultJson2);
+// $resultJson2 = json_decode($resp2, true);
+// echo "<br><br>";
+// print_r($resultJson2);
 
-echo "<br><br>";
+// echo "<br><br>";
 
 echo "hasil evaluasi google =" .$resultJson2["results"][0]["elevation"];
 $suhu=round( $resultJson["main"]["temp"]-273.15,2) ;
@@ -157,6 +165,9 @@ if (!$suhu==-273.15) {
                       </div>
                       <div class="container">
                         <div class="row">
+                        <form action="analis.php" method="get">
+                          <input type="text" id="lat" name="latitude">
+                          <input type="text" id="long" name="longtitude">
                           <div class="col-lg-3 col-md-6 text-center">
                             <div class="service-box mt-5 mx-auto">
                               <i class="fas fa-4x fa-thermometer-three-quarters text-primary mb-3 sr-icon-1"></i>
@@ -209,14 +220,15 @@ if (!$suhu==-273.15) {
                               </p>
                             </div>
                           </div>
+                          <button type="submit" name="submit">submit</button>
+                          </form>
                         </div>
                       </div>
                     </section>
                     <form action="analis.php" method="get">
                     <!-- Inputan latitude dan Longtitude hidden -->
                       
-                        <input type="text" id="lat" name="latitude">
-                        <input type="text" id="long" name="longtitude">
+                        
                       
                         <div class="row" style="margin: 1rem">
                               <label class="col-md-2"for="ketinggian">Ph Tanah</label>
@@ -225,6 +237,9 @@ if (!$suhu==-273.15) {
                             </div>
                             <label for="ketinggian" class="col-md-2">Curah hujan</label>
                              <div class="col-md-4">
+                                <select name="hujan" id="">
+                                    
+                                </select>
                                  <input type="text" class="form-control" placeholder="Curah Hujan " name="hujan">
                              </div>
                         </div>
