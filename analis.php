@@ -124,8 +124,10 @@ function analisis ($data) {
 	$rows['suhu'] = $param_suhu;
 	$rows['tanah'] = $param_tanah;
 	$rows['tinggi'] = $param_tinggi;
-	
-	
+	$rows['latitude'] = $data['latitude'];
+	$rows['longtitude'] = $data['longtitude'];
+
+
 	return $rows;
 	
 	}
