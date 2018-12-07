@@ -232,8 +232,7 @@
         <h6 class="mb-4">Saran dari anda sangat membantu kami dalam pengembangan aplikasi in juga sebagai bahan evaluasi dari kami untuk kebaikan kedepanya. Kami harap saran yang anda berikan merupakan saran yang membangun dan berkualitas </h6>
         <a class="btn btn-light btn-xl sr-button" href="http://startbootstrap.com/template-overviews/creative/">Tulis Saran</a>
       </div>
-    </section>
-
+    </section>0
     <section id="contact">
       <div class="container">
         <div class="row">
