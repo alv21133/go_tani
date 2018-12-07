@@ -1,16 +1,13 @@
-    <?php
-    include_once 'konek.php';
-    ?>
-    <html>
-    <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
+<?php
+  include_once 'konek.php';
+?>
 
-    <title>Go_Tani App </title>
-    <!-- Bootstrap core CSS -->
-    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>hasil Analisi</title>
+	<link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom fonts for this template -->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -45,10 +42,9 @@
                         padding: 0;
                       }
     </style>
-  </head>
-                <body id="page-top">
-    <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+</head>
+<body>
+   <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
       <div class="container">
         <a class="navbar-brand js-scroll-trigger" href="index.php">Go_tani </a>
         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
@@ -73,95 +69,22 @@
       </div>
     </nav>
 
+				<header class="text-center text-white d-flex" style="background-color:brown">
+					      <div class="container my-auto">
+					        <div class="row">
+					          <div class="col-lg-10 mx-auto">
+					            <
+					            <hr>
+					          </div>
+					          <div class="col-lg-8 mx-auto">
+					            
+					          </div>
+					        </div>
+					      </div>
+					    </header>
 
-
-
-
-                  <!--   goolemap -->
-                <body>
-                    <div id="map"></div>
-                    <script>
-                        // Note: This example requires that you consent to location sharing when
-                        // prompted by your browser. If you see the error "The Geolocation service
-                        // failed.", it means you probably did not give permission for the browser to
-                        // locate you.
-                        var map, infoWindow;
-      function initMap() {
-                            map = new google.maps.Map(document.getElementById('map'), {
-                                center: { lat: -34.397, lng: 150.644 },
-                                zoom: 6
-                            });
-                        infoWindow = new google.maps.InfoWindow;
-                
-                        // Try HTML5 geolocation.
-        if (navigator.geolocation) {
-                            navigator.geolocation.getCurrentPosition(function (position) {
-                                var pos = {
-                                    lat: position.coords.latitude,
-                                    lng: position.coords.longitude
-                                };
-                                
-                                var latitude = position.coords.latitude;
-                                var longtitude = position.coords.longitude;
-
-                                infoWindow.setPosition(pos);
-                                infoWindow.setContent('Lokasi Anda !');
-                                infoWindow.open(map);
-                                map.setCenter(pos);
-
-                                               
-                                
-
-                                document.cookie = "latitude = " + latitude;
-                                document.cookie = "longtitude = " + longtitude;
-                            }, function () {
-                                handleLocationError(true, infoWindow, map.getCenter());
-                                
-                            });
-                        } else {
-                            // Browser doesn't support Geolocation
-
-                            handleLocationError(false, infoWindow, map.getCenter());
-                            
-                                location.reload();
-                            
-                           
-                        }
-                        
-                      }
-                
-      function handleLocationError(browserHasGeolocation, infoWindow, pos) {
-                            infoWindow.setPosition(pos);
-                        infoWindow.setContent(browserHasGeolocation ?
-                                              'Error: Lokasi tidak ditemukan, periksa perizinan pengaksesan lokasi.' :
-                                              'Error: Browser anda tidak mendukung geolocation, periksa gps anda.');
-                        infoWindow.open(map);
-
-
-                    }  
-                      
-
-
-
-            </script>
-
-
-                                    <script type="text/javascript">
-                                            $(document).ready(function(){    
-        //Check if the current URL contains '#'
-                                              if(document.URL.indexOf("input.php")==-1){
-            // Set the URL to whatever it was plus "#".
-                                                    url = document.URL+"input.php";
-                                                  location = "input.php";
-            //Reload the page
-                                                location.reload(true);
-                                                      }
-                                        });
-                                        </script>
-
-
-            
-<?php
+              
+    <?php
 
 //$name = $_GET['name'];
 //$address = $_GET['address'];
@@ -214,11 +137,6 @@ if (!$suhu==-273.15) {
     $tanah=$dbkonek->query("select * from tanah");
 ?>
 
-                    <script async defer
-                        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBSHhSMyxh3XrHskeQN40xbTNt2WMQzW94&callback=initMap">
-                    </script>
-
-
                     <section id="services">
                       <div class="container">
                         <div class="row">
@@ -239,6 +157,7 @@ if (!$suhu==-273.15) {
                                      </h2>
                             </div>
                           </div>
+
                           <div class="col-lg-3 col-md-6 text-center">
                             <div class="service-box mt-5 mx-auto">
                               <i class="fas fa-4x fa-map-marked-alt text-primary mb-3  sr-icon-2"></i>
@@ -287,48 +206,154 @@ if (!$suhu==-273.15) {
                     </section>
 
 
+                    <!-- tampilan tanaman  -->
+
+      <section id="services">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 text-center">
+            <h2 class="section-heading">Tanaman Yang Potensial di Daerah Anda!</h2>
+            <hr class="my-4">
+          </div>
+        </div>
+      </div>
 
 
 
-                    <form action="analis.php" method="POST">
-                        <div class="row" style="margin: 1rem">
-                              <label class="col-md-2"for="ketinggian">Ph Tanah</label>
-                            <div class="col-md-4">
-                                <input type="text" class="form-control" placeholder="Keasaman Tanah" name="tanah">
-                            </div>
-                            <label for="ketinggian" class="col-md-2">Curah hujan</label>
-                             <div class="col-md-4">
-                                 <input type="text" class="form-control" placeholder="Curah Hujan " name="hujan">
-                             </div>
+      <div class="container">
+        <div class="row">
+                  <?php 
+                  $tanaman=$dbkonek->query("select * from tanaman");
+                      while ($data=mysqli_fetch_array($tanaman)){
+
+                      ?>
+                        <div class="card" style="width:18rem; margin:1rem;">
+                          <img class="card-img-top" src="https://img.over-blog-kiwi.com/2/12/87/31/20170925/ob_597d6e_5-manfaat-kesehatan-fantastis-dari-kub.png" alt="Card image cap">
+                          <div class="card-body">
+                            <h5 class="card-title"><?php echo $data['nama']; ?></h5>
+                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                            <a href="#" class="btn btn-primary">Rp<?php echo $data['harga']; ?></a>
+                          </div>
                         </div>
 
-                        <div class="row" style="margin: 1rem">
-                              <label class="col-md-2"for="ketinggian">Suhu</label>
-                            <div class="col-md-4">
-                                <input type="text" readonly  class="form-control" placeholder="Suhu" name="suhu" value="<?php echo $suhu?>">
-                            </div>
-                            <label for="ketinggian" class="col-md-2">Ketinggian</label>
-                             <div class="col-md-4">
-                                        <input type="text"  class="form-control"  name="ketinggian" placeholder="ketinggian" value="<?php echo $ketinggian?>">
-                             </div>
-                        </div >
-                                    <input type="submit"  name="submit">
-                     </form>
 
 
-    <!-- Bootstrap core JavaScript -->
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
-    <!-- Plugin JavaScript -->
-    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
-    <script src="vendor/scrollreveal/scrollreveal.min.js"></script>
-    <script src="vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
-
-    <!-- Custom scripts for this template -->
-    <script src="js/creative.min.js"></script>
 
 
-                </body>
+                      <?php
+                      
+                      }
+                  ?>  
 
-</html>got
+                 
+                  ?>       
+
+          <!-- <div class="col-lg-3 col-md-6 text-center">
+            <div class="service-box mt-5 mx-auto">
+              <i class="fas fa-4x fa-paper-plane text-primary mb-3 sr-icon-2"></i>
+              <h3 class="mb-3">Isi Semua Form</h3>
+              <p class="text-muted mb-0">You can use this theme as is, or you can make changes!</p>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6 text-center">
+            <div class="service-box mt-5 mx-auto">
+              <i class="fas fa-4x fa-code text-primary mb-3 sr-icon-3"></i>
+              <h3 class="mb-3">Temukan Tanaman</h3>
+              <p class="text-muted mb-0">We update dependencies to keep things fresh.</p>
+            </div>
+          </div>
+          
+          <div class="col-lg-3 col-md-6 text-center">
+            <div class="service-box mt-5 mx-auto">
+              <i class="fas fa-4x fa-heart text-primary mb-3 sr-icon-4"></i>
+              <h3 class="mb-3">Save Hasil Analisis</h3>
+              <p class="text-muted mb-0">You have to make your websites with love these days!</p>
+            </div>
+          </div>
+           -->
+        </div>
+      </div>
+    </section>
+
+
+                      
+      <section id="services">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 text-center">
+            <h2 class="section-heading">Tanaman Yang Potensial di Daerah Anda!</h2>
+            <hr class="my-4">
+          </div>
+        </div>
+      </div>
+
+
+
+      <div class="container">
+        <div class="row">
+
+
+
+
+ <?php 
+                  $tanaman=$dbkonek->query("select * from tanaman");
+                      while ($data=mysqli_fetch_array($tanaman)){
+
+                      ?>
+                        
+
+                        <div class="col-lg-3 col-md-6 text-center">
+                          <div class="service-box mt-5 mx-auto">
+                           <img  width="252"  class="fas fa-4x text-primary mb-3 sr-icon-3" src="https://img.over-blog-kiwi.com/2/12/87/31/20170925/ob_597d6e_5-manfaat-kesehatan-fantastis-dari-kub.png"></img>
+                            <h3 class="mb-3"><?php echo $data['nama']; ?></h3>
+                            <p class="text-muted mb-0"><h3>Rp<?php echo $data['harga']; ?></h3></p>
+                          </div>
+                        </div>
+
+
+                      <?php
+                      
+                      }
+                      ?>
+
+          </div>
+                </div>
+              </section>
+
+
+
+
+
+    <section id="contact" class="bg-dark text-white" >
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 mx-auto text-center">
+            <h2 class="section-heading">Kelompok GO_TANI</h2>
+            <hr class="my-4">
+            <p class="mb-5">Kelompok final project pemrograman web lanjut , sed do eiusmod
+            tempor incididunt ut labore et dolore magna aliqua. </p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-4 ml-auto text-center">
+            <i class="fas fa-phone fa-3x mb-3 sr-contact-1"></i>
+            <p>123-456-6789</p>
+          </div>
+
+          <div class="col-lg-4 ml-auto text-center">
+            <i class="fas fa-phone fa-3x mb-3 sr-contact-1"></i>
+            <p>123-456-6789</p>
+          </div>
+          <div class="col-lg-4 mr-auto text-center">
+            <i class="fas fa-envelope fa-3x mb-3 sr-contact-2"></i>
+            <p>
+              <a href="mailto:your-email@your-domain.com">feedback@startbootstrap.com</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+</body>
+</html>
