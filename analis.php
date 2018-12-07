@@ -6,7 +6,6 @@ function analisis ($data) {
 	global $dbkonek;
 	$tanah = $data['tanah'];
 	$hujan = $data['hujan'];
-	$suhu = $data['suhu'];
 	$lat = $data['latitude'];
 	$long = $data['longtitude'];
 
@@ -23,7 +22,7 @@ function analisis ($data) {
 	curl_close($curl2);
 
 	$resultJson2 = json_decode($resp2, true);
-	print_r($resultJson2);
+	// print_r($resultJson2);
 	
 	$ketinggian = $resultJson2['results'][0]['elevation']/10;
 
@@ -40,7 +39,9 @@ function analisis ($data) {
 	curl_close($curl);
 
 	$resultJson = json_decode($resp, true);
-	print_r($resultJson);
+	// print_r($resultJson);
+
+	$suhu = round($resultJson['main']['temp'])-273;
 		
 	$result_tinggi = mysqli_query($dbkonek, "SELECT	* FROM ketinggian");
 	$result_suhu = mysqli_query($dbkonek, "SELECT * FROM suhu");
@@ -119,7 +120,4 @@ function analisis ($data) {
 
 	return $rows;
 	}
-
-$dump = analisis($_GET);
-var_dump($dump);
 ?>

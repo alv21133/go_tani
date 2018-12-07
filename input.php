@@ -189,11 +189,11 @@ if (!$suhu==-273.15) {
                               <i class="fas fa-4x fa-cloud-showers-heavy text-primary mb-3 sr-icon-3"></i>
                               <h3 class="mb-3">Curah Hujan</h3>
                               <p class="text-muted mb-0">
-                                  <select class="form-control form-control-lg">
+                                  <select class="form-control form-control-lg" name="hujan">
                                     
                                     <?php while ($data=mysqli_fetch_array($hujan)) {
                                     ?>
-                                        <option value="<?php echo$data['kategori'] ?>"><?php echo $data['kategori']; ?></option>
+                                        <option value="<?= ($data['hujan_max']+$data['hujan_min'])/2;?>"><?php echo $data['kategori']; ?> (<?= $data['hujan_max'] ?> - <?=$data['hujan_min'];?>)</option>
                                     <?php
                                     } 
                                     ?>
@@ -207,11 +207,11 @@ if (!$suhu==-273.15) {
                               <i class="fas fa-4x fa-microscope text-primary mb-3 sr-icon-4"></i>
                               <h3 class="mb-3">Ph tanah</h3>
                               <p class="text-muted mb-0">
-                                  <select class="form-control form-control-lg">
+                                  <select class="form-control form-control-lg" name="tanah">
                                     <?php
                                     while ($data_h=mysqli_fetch_array($tanah)) {
                                         ?>
-                                        <option><?php echo $data_h['kategori']; ?></option>
+                                        <option value="<?= ($data_h['ph_max']+$data_h['ph_min'])/2;?>"><?php echo $data_h['kategori']; ?> - <?= ($data_h['ph_max']+$data_h['ph_min'])/2;?></option>
                                     <?php
                                     }
                                     ?>
