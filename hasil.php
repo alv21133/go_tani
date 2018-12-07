@@ -1,5 +1,6 @@
 <?php
   include_once 'konek.php';
+  include_once 'analis.php';
 ?>
 
 
@@ -88,8 +89,9 @@
 
 //$name = $_GET['name'];
 //$address = $_GET['address'];
-$lat = $_COOKIE['latitude'];
-$lng = $_COOKIE['longtitude'];
+$lat = $_POST['latitude'];
+$lng = $_POST['longtitude'];
+
 //$type = $_GET['type'];
 
 
