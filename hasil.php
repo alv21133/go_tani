@@ -80,7 +80,7 @@
 					      <div class="container my-auto">
 					        <div class="row">
 					          <div class="col-lg-10 mx-auto">
-					            <
+					            
 					            <hr>
 					          </div>
 					          <div class="col-lg-8 mx-auto">
@@ -123,7 +123,7 @@
       }
     </script>
     <script async defer
-    src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap">
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBSHhSMyxh3XrHskeQN40xbTNt2WMQzW94&callback=initMap">
     </script>
 
     <?php
