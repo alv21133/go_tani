@@ -91,25 +91,30 @@
 					    </header>
 
                <div id="map"></div>
+              
+            <input hidden id="lat1" value="<?php echo $analisis['latitude'] ?>"></input>
+            <input hidden  id="long1" value="<?php echo $analisis['longtitude'] ?>"></input>
+           
+            ?>
     <script>
 
-      // The following example creates a marker in Stockholm, Sweden using a DROP
-      // animation. Clicking on the marker will toggle the animation between a BOUNCE
-      // animation and no animation.
-
+      
       var marker;
 
+        var lat= document.getElementById('lat');
+        var long= document.getElementById('long');
       function initMap() {
         var map = new google.maps.Map(document.getElementById('map'), {
           zoom: 13,
-          center: {lat: 59.325, lng: 18.070}
+          center: {lat:<?php echo $analisis['latitude'] ?>, lng: <?php echo $analisis['longtitude'] ?>}
         });
 
         marker = new google.maps.Marker({
           map: map,
           draggable: true,
           animation: google.maps.Animation.DROP,
-          position: {lat: 59.327, lng: 18.067}
+          animation: google.maps.Animation.BOUNCE,
+          position: {lat:<?php echo $analisis['latitude'] ?>, lng: <?php echo $analisis['longtitude'] ?>}
         });
         marker.addListener('click', toggleBounce);
       }
@@ -251,42 +256,7 @@ if (!$suhu==-273.15) {
 
                     <!-- tampilan tanaman  -->
 
-      <section id="services">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-12 text-center">
-            <h2 class="section-heading">Tanaman Yang Potensial di Daerah Anda!</h2>
-            <hr class="my-4">
-          </div>
-        </div>
-      </div>
-
-
-
-      <div class="container">
-        <div class="row">
-                  <?php 
-                  $tanaman=$dbkonek->query("select * from tanaman");
-                      while ($data=mysqli_fetch_array($tanaman)){
-
-                      ?>
-                        <div class="card" style="width:18rem; margin:1rem;">
-                          <img class="card-img-top" src="https://img.over-blog-kiwi.com/2/12/87/31/20170925/ob_597d6e_5-manfaat-kesehatan-fantastis-dari-kub.png" alt="Card image cap">
-                          <div class="card-body">
-                            <h5 class="card-title"><?php echo $data['nama']; ?></h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            <a href="#" class="btn btn-primary">Rp<?php echo $data['harga']; ?></a>
-                          </div>
-                        </div>
-
-
-
-
-
-                      <?php
-                      
-                      }
-                  ?>  
+    
 
                  
                  
@@ -315,9 +285,7 @@ if (!$suhu==-273.15) {
             </div>
           </div>
            -->
-        </div>
-      </div>
-    </section>
+    
 
 
                       
