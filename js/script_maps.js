@@ -94,7 +94,7 @@ function showPosition(position) {
       title: 'Lokasi Anda!',
       animation: google.maps.Animation.BOUNCE
    });
-   marker.addListener('click', toggleBounce);
+   marker.addListener('click', marker);
    markers.push(marker);
    
 
