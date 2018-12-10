@@ -2,8 +2,6 @@
   include_once 'konek.php';
   include_once 'analis.php';
   $analisis = analisis($_POST);
-  var_dump($analisis);
-  
 
   
 ?>
@@ -172,7 +170,7 @@ if (!$suhu==-273.15) {
     $tanah=$dbkonek->query("select * from tanah where id_tanah='$analisis[tanah]'");
 ?>
 
-                    <section id="services" style="margin-top:-10rem">
+                    <section id="services">
                       <div class="container">
                         <div class="row">
                           <div class="col-lg-12 text-center">
@@ -253,7 +251,7 @@ if (!$suhu==-273.15) {
         <div class="row">
 
 
-
+<!-- hasil analisi farward chaining  -->
 
  <?php 
                   $tanaman=$dbkonek->query("select * from tanaman WHERE  ketinggian = '$analisis[tinggi]' AND jenis_tanah = '$analisis[tanah]' OR curah_hujan = '$analisis[hujan]' OR suhu = '$analisis[suhu]'");

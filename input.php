@@ -146,18 +146,14 @@
                                   <select class="form-control form-control-lg" name="hujan">
                                     
                                     <?php while ($data=mysqli_fetch_array($hujan)) {
-
-                                      if (($data['hujan_max']+$data['hujan_min'])/2 == 225.5) {
-                                        ?>
+                                      if (($data['hujan_max']+$data['hujan_min'])/2 == 225.5) { ?>
                                                  <option value="<?= ($data['hujan_max']+$data['hujan_min'])/2;?>" selected><?php echo $data['kategori']; ?> (<?= $data['hujan_max'] ?> - <?=$data['hujan_min'];?>)</option>
-                                        <?php
-                                      }
+                                        <?php }else{ ?>
 
-                                    ?>
-
-                                        
                                         <option value="<?= ($data['hujan_max']+$data['hujan_min'])/2;?>"><?php echo $data['kategori']; ?> (<?= $data['hujan_max'] ?> - <?=$data['hujan_min'];?>)</option>
+
                                     <?php
+                                      }
                                     } 
                                     ?>
                                       
@@ -200,7 +196,6 @@
                           </form>
                         
                     </section>
-                    <form action="hasil.php" method="post">
                     
 
     <!-- Bootstrap core JavaScript -->
