@@ -2,10 +2,7 @@
   include_once 'konek.php';
   include_once 'analis.php';
   $analisis = analisis($_POST);
-  var_dump($analisis);
-  
 
-  
 ?>
 
 

@@ -149,7 +149,7 @@
 
                                       if (($data['hujan_max']+$data['hujan_min'])/2 == 225.5) {
                                         ?>
-                                                 <option value="<?= ($data['hujan_max']+$data['hujan_min'])/2;?>" selected><?php echo $data['kategori']; ?> (<?= $data['hujan_max'] ?> - <?=$data['hujan_min'];?>)</option>
+                                                 <option value="<?= ($data['hujan_max']+$data['hujan_min'])/2?>" selected><?php echo $data['kategori']; ?> (<?= $data['hujan_max'] ?> - <?=$data['hujan_min'];?>)</option>
                                         <?php
                                       }
 
