@@ -1,7 +1,6 @@
 <?php
   include_once 'konek.php';
   include_once 'analis.php';
-
   $analisis = analisis($_POST);
   var_dump($analisis);
   
@@ -51,7 +50,9 @@
     </style>
 </head>
 <body>
-   <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+    <body id="page-top">
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav" style="background-color: #F05F40;">
       <div class="container">
         <a class="navbar-brand js-scroll-trigger" href="index.php">Go_tani </a>
         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
@@ -75,27 +76,14 @@
         </div>
       </div>
     </nav>
-
-				<header class="text-center text-white d-flex" style="background-color:brown">
-					      <div class="container my-auto">
-					        <div class="row">
-					          <div class="col-lg-10 mx-auto">
-					            
-					            <hr>
-					          </div>
-					          <div class="col-lg-8 mx-auto">
-					            
-					          </div>
-					        </div>
-					      </div>
-					    </header>
-
+    <!--   goolemap -->
+    <body>
                <div id="map"></div>
               
             <input hidden id="lat1" value="<?php echo $analisis['latitude'] ?>"></input>
             <input hidden  id="long1" value="<?php echo $analisis['longtitude'] ?>"></input>
            
-            ?>
+          
     <script>
 
       
@@ -154,7 +142,7 @@ $resp = curl_exec($curl);
 curl_close($curl);
 
 $resultJson = json_decode($resp, true);
-print_r($resultJson);
+// print_r($resultJson);
 
 $curl2 = curl_init();
 // Set some options - we are passing in a useragent too here
@@ -170,26 +158,25 @@ curl_close($curl2);
 
 $resultJson2 = json_decode($resp2, true);
 echo "<br><br>";
-print_r($resultJson2);
+// print_r($resultJson2);
 
 echo "<br><br>";
-
-echo "hasil evaluasi google =" .$resultJson2["results"][0]["elevation"];
+// echo "hasil evaluasi google =" .$resultJson2["results"][0]["elevation"];
 $suhu=round( $resultJson["main"]["temp"]-273.15,2) ;
 $ketinggian=round( $resultJson2["results"][0]["elevation"]/10,2) ;
  // satuan suhu kelvin
 if (!$suhu==-273.15) {
     header("location:input.php");
 }
-    $hujan=$dbkonek->query("select * from curah_hujan");
-    $tanah=$dbkonek->query("select * from tanah");
+    $hujan=$dbkonek->query("select * from curah_hujan where id_hujan='$analisis[hujan]' ");
+    $tanah=$dbkonek->query("select * from tanah where id_tanah='$analisis[tanah]'");
 ?>
 
-                    <section id="services">
+                    <section id="services" style="margin-top:-10rem">
                       <div class="container">
                         <div class="row">
                           <div class="col-lg-12 text-center">
-                            <h2 class="section-heading">Pastikan Data Sesuai Lokasi Anda </h2>
+                            <h2 class="section-heading">Hasil Analisis Kami Pada Lokasi Anda </h2>
                             <hr class="my-4">
                           </div>
                         </div>
@@ -218,16 +205,13 @@ if (!$suhu==-273.15) {
                               <i class="fas fa-4x fa-cloud-showers-heavy text-primary mb-3 sr-icon-3"></i>
                               <h3 class="mb-3">Curah Hujan</h3>
                               <p class="text-muted mb-0">
-                                  <select class="form-control form-control-lg">
-                                    
+                                                                  
                                     <?php while ($data=mysqli_fetch_array($hujan)) {
                                    ?>
-                                        <option value="<?php echo$data['kategori'] ?>"><?php echo $data['kategori']; ?></option>
+                                    <h2  class="text-muted mb-0"><?php echo$data['kategori'] ?></h2>
                                     <?php
                                     } 
                                     ?>
-                                      
-                                   </select>
                               </p>
                             </div>
                           </div>
@@ -236,58 +220,22 @@ if (!$suhu==-273.15) {
                               <i class="fas fa-4x fa-microscope text-primary mb-3 sr-icon-4"></i>
                               <h3 class="mb-3">Ph tanah</h3>
                               <p class="text-muted mb-0">
-                                  <select class="form-control form-control-lg">
+                                  
                                     <?php
                                     while ($data_h=mysqli_fetch_array($tanah)) {
                                         ?>
-                                        <option><?php echo $data_h['kategori']; ?></option>
+                                         <h2  class="text-muted mb-0"><?php echo $data_h['kategori']; ?></h2>
                                     <?php
                                     }
                                     ?>
                                       
-                                   </select>
+                                  
                               </p>
                             </div>
                           </div>
                         </div>
                       </div>
                     </section>
-
-
-                    <!-- tampilan tanaman  -->
-
-    
-
-                 
-                 
-
-          <!-- <div class="col-lg-3 col-md-6 text-center">
-            <div class="service-box mt-5 mx-auto">
-              <i class="fas fa-4x fa-paper-plane text-primary mb-3 sr-icon-2"></i>
-              <h3 class="mb-3">Isi Semua Form</h3>
-              <p class="text-muted mb-0">You can use this theme as is, or you can make changes!</p>
-            </div>
-          </div>
-
-          <div class="col-lg-3 col-md-6 text-center">
-            <div class="service-box mt-5 mx-auto">
-              <i class="fas fa-4x fa-code text-primary mb-3 sr-icon-3"></i>
-              <h3 class="mb-3">Temukan Tanaman</h3>
-              <p class="text-muted mb-0">We update dependencies to keep things fresh.</p>
-            </div>
-          </div>
-          
-          <div class="col-lg-3 col-md-6 text-center">
-            <div class="service-box mt-5 mx-auto">
-              <i class="fas fa-4x fa-heart text-primary mb-3 sr-icon-4"></i>
-              <h3 class="mb-3">Save Hasil Analisis</h3>
-              <p class="text-muted mb-0">You have to make your websites with love these days!</p>
-            </div>
-          </div>
-           -->
-    
-
-
                       
       <section id="services">
       <div class="container">
@@ -332,39 +280,9 @@ if (!$suhu==-273.15) {
                 </div>
               </section>
 
-
-
-
-
-    <section id="contact" class="bg-dark text-white" >
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-8 mx-auto text-center">
-            <h2 class="section-heading">Kelompok GO_TANI</h2>
-            <hr class="my-4">
-            <p class="mb-5">Kelompok final project pemrograman web lanjut , sed do eiusmod
-            tempor incididunt ut labore et dolore magna aliqua. </p>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-lg-4 ml-auto text-center">
-            <i class="fas fa-phone fa-3x mb-3 sr-contact-1"></i>
-            <p>123-456-6789</p>
-          </div>
-
-          <div class="col-lg-4 ml-auto text-center">
-            <i class="fas fa-phone fa-3x mb-3 sr-contact-1"></i>
-            <p>123-456-6789</p>
-          </div>
-          <div class="col-lg-4 mr-auto text-center">
-            <i class="fas fa-envelope fa-3x mb-3 sr-contact-2"></i>
-            <p>
-              <a href="mailto:your-email@your-domain.com">feedback@startbootstrap.com</a>
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
+<?php
+include_once 'footer.php';
+?>
 
 </body>
 </html>
