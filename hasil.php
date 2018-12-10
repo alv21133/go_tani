@@ -286,6 +286,23 @@ if (!$suhu==-273.15) {
           </div>
                 </div>
               </section>
+      
+      <section class="bg-secondary text-white">
+        <div class="container text-center">
+          <h2 class="mb-4">Simpan Hasil Ananlisis Lokasi Anda</h2>
+          <h5 class="mb-4"> Agar hasil analisis dapat di simpan maka anda terlebih dahulu harus melakukan registrasi , Nantinya hasil analisis akan secara otomatis tersimpan
+          pada account anda , dan dapat di buka kembali kapan pun saat anda login.
+          
+          </h5>
+          <a class="btn btn-light btn-xl sr-button" href="signin.php">Simpan</a>
+        </div>
+    </section>
+
+      <section class="bg-white text-black">
+        <div class="container text-center">
+          
+        </div>
+    </section>
 
 <?php
 include_once 'footer.php';

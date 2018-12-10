@@ -1,16 +1,16 @@
 <?php
 $host='localhost';
-$username='root';
-$password='';
+$user='root';
+$pass='';
 $db='go_tani';
 
-$dbkonek=new mysqli ("$host","$username","$password","$db");
+$dbkonek= new mysqli("$host","$user","$pass","$db");
 
 if ($dbkonek->connect_error) {
-	echo "koneksi gagal";	# code...
-}else
-{
-	//echo " Database cenected ";
+	echo"gagal konek";
+
+}else{
+	//echo"conected";
 }
 
 ?>
