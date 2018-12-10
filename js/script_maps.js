@@ -18,13 +18,11 @@ function initMap() {
          deleteMarkers();
       }
 
-
       addMarker(event.latLng);
       var latitude = document.getElementById('lat').value = event.latLng.lat();
       var longtitude = document.getElementById('long').value = event.latLng.lng();
    });
 }
-
 
 // Adds a marker to the map and push to the array.
 function addMarker(location) {
@@ -84,9 +82,7 @@ function showPosition(position) {
    map = new google.maps.Map(document.getElementById('map'), {
       zoom: 20, // Set the zoom level manually
       center: latlong,
-
    });
-
 
    var marker = new google.maps.Marker({
       position: latlong,
@@ -96,13 +92,12 @@ function showPosition(position) {
    });
    marker.addListener('click', marker);
    markers.push(marker);
-   
+
 
    map.addListener('click', function (event) {
       if (markers.length >= 1) {
          deleteMarkers();
       }
-
 
       addMarker(event.latLng);
       var latitude = document.getElementById('lat').value = event.latLng.lat();
@@ -110,9 +105,6 @@ function showPosition(position) {
    });
 
 }
-
-
-
 
 function showError(error) {
    switch (error.code) {
