@@ -47,6 +47,7 @@
     <?php
 
 include_once'konek.php';
+error_reporting(0);
  
    if(isset($_POST['submit'])){
 
@@ -55,9 +56,12 @@ include_once'konek.php';
         $user=$_POST['username'];
         $pass=$_POST['pass'];
 
-        $query=$dbkonek->query("select * from user where username ='$user' AND password='$pass'");
-        $result=mysqli_num_rows($query);
-        if($result!=0){
+        $query=$dbkonek->query("select * from user where username='$user' limit 1");
+        while ($result=mysqli_fetch_array($query)) {
+            $db_p=$result['password'];
+            $db_u=$result['username'];
+        }
+        if(password_verify($pass,$db_p)){
 
             $_SESSION["user"]="$user";
             $_SESSION["pass"]="$pass";

@@ -10,7 +10,7 @@ if ($dbkonek->connect_error) {
 	echo"gagal konek";
 
 }else{
-	echo"conected";
+	//echo"conected";
 }
 
 ?>

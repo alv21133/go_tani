@@ -230,8 +230,51 @@
       <div class="container text-center">
         <h2 class="mb-4">Kritik dan Saran </h2>
         <h6 class="mb-4">Saran dari anda sangat membantu kami dalam pengembangan aplikasi in juga sebagai bahan evaluasi dari kami untuk kebaikan kedepanya. Kami harap saran yang anda berikan merupakan saran yang membangun dan berkualitas </h6>
-        <a class="btn btn-light btn-xl sr-button" href="http://startbootstrap.com/template-overviews/creative/">Tulis Saran</a>
+        <button class="btn btn-light btn-xl sr-button"  data-toggle="modal" data-target="#pesan" data-whatever="@getbootstrap" >Tulis Saran</button>
       </div>
+
+
+        <div class="modal fade" id="pesan" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Tulis pesan Anda di sini</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <form>
+                <div class="form-group">
+                  <label for="recipient-name" class="col-form-label">Recipient:</label>
+                  <input type="text" class="form-control" id="recipient-name">
+                </div>
+                <div class="form-group">
+                  <label for="message-text" class="col-form-label">Message:</label>
+                  <textarea class="form-control" id="message-text"></textarea>
+                </div>
+              </form>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
+              <button type="button" class="btn btn-primary">Kirim Pesan</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <script>
+             $('#exampleModal').on('show.bs.modal', function (event) {
+            var button = $(event.relatedTarget) // Button that triggered the modal
+            var recipient = button.data('whatever') // Extract info from data-* attributes
+            // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
+            // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
+            var modal = $(this)
+            modal.find('.modal-title').text('New message to ' + recipient)
+            modal.find('.modal-body input').val(recipient)
+})
+      </script>
+
     </section>0
     <section id="contact">
       <div class="container">
