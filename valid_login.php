@@ -14,7 +14,7 @@
         <div class="modal fade" id="salah" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
-            <div class="modal-header">
+            <div class="modal-header  bg-warning">
                 <h5 class="modal-title" id="exampleModalLabel">Maaf Username & Password  Salah</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
@@ -48,14 +48,15 @@
 
 include_once'konek.php';
  
-   
+   if(isset($_POST['submit'])){
+
+
 
         $user=$_POST['username'];
         $pass=$_POST['pass'];
 
         $query=$dbkonek->query("select * from user where username ='$user' AND password='$pass'");
         $result=mysqli_num_rows($query);
-        var_dump($result);
         if($result!=0){
 
             $_SESSION["user"]="$user";
@@ -73,7 +74,7 @@ include_once'konek.php';
                 ";
         }
     
-
+    }
            
 	?>
 

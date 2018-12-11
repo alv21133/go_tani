@@ -2,6 +2,7 @@
 <?php
 
 include_once'konek.php';
+include_once'valid_login.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -74,7 +75,7 @@ include_once'konek.php';
     </nav>
 
 
-<form action="valid_login.php" method="POST">
+<form action="" method="POST">
 	<div class="limiter">
 		<div class="container-login100" style="background-image: url('img/img-01.jpg');">
 			<div class="wrap-login100 p-b-30">
@@ -100,7 +101,7 @@ include_once'konek.php';
 					</div>
 
 					<div class="container-login100-form-btn p-t-10">
-						<button class="login100-form-btn" type="submit" name="signin">
+						<button class="login100-form-btn" type="submit" name="submit" value="Submit">
 							Sign In
 						</button>
 					</div>

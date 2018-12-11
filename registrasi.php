@@ -1,18 +1,6 @@
 <?php 
-
-$host='192.168.100.6';
-$username='root';
-$password='';
-$db='go_tani';
-
-$dbkonek=mysqli_connect("$host","$username","$password","$db");
-
-if ($_POST["signup"]) {
-   $username = $_POST['username'];
-   $password = $_POST['password'];
-   $email = $_POST['email'];
-}
-
+include_once'konek.php';
+include_once'save_registrasi.php';
 ?>
 
 <!DOCTYPE html>
@@ -47,7 +35,7 @@ if ($_POST["signup"]) {
 	<div class="limiter">
 		<div class="container-login100" style="background-image: url('img/img-01.jpg');">
 			<div class="wrap-login100 p-b-30">
-				<form class="login100-form validate-form">
+				<div class="login200-form validate-form">
 					<span class="login100-form-title p-t-20 p-b-45">
 						Pendaftaran<br>
 					</span>
@@ -61,7 +49,7 @@ if ($_POST["signup"]) {
 					</div>
 
                <div class="wrap-input100 validate-input m-b-10" data-validate = "e-mail is required">
-						<input class="input100" type="email" name="email" placeholder="e-mail">
+						<input class="input100" type="email" name="mail" placeholder="e-mail">
 						<span class="focus-input100"></span>
 						<span class="symbol-input100">
                   <i class="fas fa-at"></i>
@@ -77,12 +65,12 @@ if ($_POST["signup"]) {
 					</div>
 
 					<div class="container-login100-form-btn p-t-10">
-						<button class="login100-form-btn" type="submit" name="signup">
-							Sign Up
+						<button class="login100-form-btn" type="submit" name="submit" value="submit">
+							Daftar
 						</button>
 					</div>
                </form>
-				</form>
+				</div>
 			</div>
 		</div>
 	</div>
