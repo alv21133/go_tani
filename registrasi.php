@@ -79,6 +79,7 @@ include_once'save_registrasi.php';
 		<div class="container-login100" style="background-image: url('img/img-01.jpg');">
 			<div class="wrap-login100 p-b-30">
 				<div class="login200-form validate-form">
+				<form action="save_registrasi.php" method="post">
 					<span class="login100-form-title p-t-20 p-b-45">
 						Pendaftaran<br>
 					</span>
