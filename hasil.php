@@ -169,7 +169,7 @@ if (!$suhu==-273.15) {
     $tanah=$dbkonek->query("select * from tanah where id_tanah='$analisis[tanah]'");
 ?>
 
-                    <section id="services" style="margin-top:-10rem">
+                    <section id="services">
                       <div class="container">
                         <div class="row">
                           <div class="col-lg-12 text-center">
@@ -250,32 +250,59 @@ if (!$suhu==-273.15) {
         <div class="row">
 
 
-
+<!-- hasil analisi farward chaining  -->
 
  <?php 
-                  $tanaman=$dbkonek->query("select * from tanaman WHERE  ketinggian = '$analisis[tinggi]' AND jenis_tanah = '$analisis[tanah]' OR curah_hujan = '$analisis[hujan]' OR suhu = '$analisis[suhu]'");
-                      while ($data=mysqli_fetch_array($tanaman)){
+                  $tanaman=$dbkonek->query("select * from tanaman WHERE  ketinggian = '$analisis[tinggi]' AND jenis_tanah = '$analisis[tanah]' AND suhu = '$analisis[suhu]' OR curah_hujan = '$analisis[hujan]'");
+                  $d_row=mysqli_num_rows($tanaman);            
+                  
+                  if ($d_row != 0) {
+                        while ($data=mysqli_fetch_array($tanaman)){       
+                          ?>
 
-                      ?>
+                            <div class="col-lg-3 col-md-6 text-center">
+                              <div class="service-box mt-5 mx-auto">
+                              <img  width="252"  class="fas fa-4x text-primary mb-3 sr-icon-3" src="https://img.over-blog-kiwi.com/2/12/87/31/20170925/ob_597d6e_5-manfaat-kesehatan-fantastis-dari-kub.png"></img>
+                                <h3 class="mb-3"><?php echo $data['nama']; ?></h3>
+                                <p class="text-muted mb-0"><h3>Rp<?php echo $data['harga']; ?></h3></p>
+                              </div>
+                            </div>
+                          <?php
+                          }
+
+                      }else{
+
+                        ?>
+                              <div class="col-lg-12 text-center">
+                                  <h2 class="section-heading">Maaf Sistem Kami tidak menemukan kecocokan pada lokasi anda</h2>
+                                  
+                              </div>
                         
-
-                        <div class="col-lg-3 col-md-6 text-center">
-                          <div class="service-box mt-5 mx-auto">
-                           <img  width="252"  class="fas fa-4x text-primary mb-3 sr-icon-3" src="https://img.over-blog-kiwi.com/2/12/87/31/20170925/ob_597d6e_5-manfaat-kesehatan-fantastis-dari-kub.png"></img>
-                            <h3 class="mb-3"><?php echo $data['nama']; ?></h3>
-                            <p class="text-muted mb-0"><h3>Rp<?php echo $data['harga']; ?></h3></p>
-                          </div>
-                        </div>
-
-
-                      <?php
-                      
-                      }
+                     <?php
+                     }
+                    
                       ?>
 
           </div>
                 </div>
               </section>
+      
+      <section class="bg-secondary text-white">
+        <div class="container text-center">
+          <h2 class="mb-4">Simpan Hasil Ananlisis Lokasi Anda</h2>
+          <h5 class="mb-4"> Agar hasil analisis dapat di simpan maka anda terlebih dahulu harus melakukan registrasi , Nantinya hasil analisis akan secara otomatis tersimpan
+          pada account anda , dan dapat di buka kembali kapan pun saat anda login.
+          
+          </h5>
+          <a class="btn btn-light btn-xl sr-button" href="signin.php">Simpan</a>
+        </div>
+    </section>
+
+      <section class="bg-white text-black">
+        <div class="container text-center">
+          
+        </div>
+    </section>
 
 <?php
 include_once 'footer.php';

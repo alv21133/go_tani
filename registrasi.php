@@ -1,25 +1,7 @@
 <?php 
-
-include_once 'konek.php';
-include_once 'functions.php';
-
-// if (isset($_POST["signup"])) {
-	
-// 	if (registrasi($_POST)) {
-// 		echo "<script>
-//             alert('Registrasi Sukses');
-//             window.location.href('signin.php');
-// 			</script>";
-			
-// 	} else {
-// 		echo "<script>
-//             alert('username atau email sudah digunakan');
-//             window.location.href('registrasi.php');
-//          </script>";
-// 	}
-// }
-
-// ?>
+include_once'konek.php';
+include_once'save_registrasi.php';
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -46,14 +28,61 @@ include_once 'functions.php';
 <!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="css/util-login.css">
 	<link rel="stylesheet" type="text/css" href="css/login.css">
+
+	
+ <title>Go_Tani App </title>
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom fonts for this template -->
+    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
+
+    <!-- Plugin CSS -->
+    <link href="vendor/magnific-popup/magnific-popup.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="css/creative.min.css" rel="stylesheet">
 <!--===============================================================================================-->
 </head>
 <body>
+
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+      <div class="container">
+        <a class="navbar-brand js-scroll-trigger" href="index.php">Go_tani </a>
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="#about">ketentuan</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="#services">Fitur</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="#portfolio">Galleri</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="#contact">Tentang</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
 	
 	<div class="limiter">
 		<div class="container-login100" style="background-image: url('img/img-01.jpg');">
 			<div class="wrap-login100 p-b-30">
+<<<<<<< HEAD
 				<form class="login100-form validate-form" action="" method="post">
+=======
+				<div class="login200-form validate-form">
+>>>>>>> de70c69bd5313743d3457951b5ca91370beaf882
 					<span class="login100-form-title p-t-20 p-b-45">
 						Pendaftaran<br>
 					</span>
@@ -66,7 +95,7 @@ include_once 'functions.php';
 					</div>
 
                <div class="wrap-input100 validate-input m-b-10" data-validate = "e-mail is required">
-						<input class="input100" type="email" name="email" placeholder="e-mail">
+						<input class="input100" type="email" name="mail" placeholder="e-mail">
 						<span class="focus-input100"></span>
 						<span class="symbol-input100">
                   <i class="fas fa-at"></i>
@@ -82,11 +111,16 @@ include_once 'functions.php';
 					</div>
 
 					<div class="container-login100-form-btn p-t-10">
-						<button class="login100-form-btn" type="submit" name="signup">
-							Sign Up
+						<button class="login100-form-btn" type="submit" name="submit" value="submit">
+							Daftar
 						</button>
 					</div>
+<<<<<<< HEAD
 				</form>
+=======
+               </form>
+				</div>
+>>>>>>> de70c69bd5313743d3457951b5ca91370beaf882
 			</div>
 		</div>
 	</div>
@@ -103,6 +137,23 @@ include_once 'functions.php';
 	<script src="vendor/select2/select2.min.js"></script>
 <!--===============================================================================================-->
 	<script src="js/main.js"></script>
+
+	<!-- Bootstrap core JavaScript -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+    <script src="vendor/scrollreveal/scrollreveal.min.js"></script>
+    <script src="vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
+
+    <!-- Custom scripts for this template -->
+    <script src="js/creative.min.js"></script>
+
+
+	<?php
+		include_once'footer.php';
+	?>
 
 </body>
 </html>

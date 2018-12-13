@@ -1,41 +1,9 @@
+
 <?php
-$host='localhost';
-$username='root';
-$password='';
-$db='go_tani';
 
-$dbkonek=mysqli_connect("$host","$username","$password","$db");
-
-var_dump($_POST);
-
-if (isset($_POST["signin"])) {
-	// ambil username dan password
-	$username = $_POST["username"];
-	$password = $_POST["pass"];
-
-	$query = "SELECT * FROM user WHERE username = $username";
-	$result = mysqli_query($dbkonek, $query);
-
-	$num = mysqli_num_rows($result);
-	//cek apakah ada yang cocok
-	if ($num) {
-		$row = mysqli_fetch_assoc($result);
-		
-		if ($row["password"] == $password) {
-			header("Location: dashboard.php");
-			exit;
-		}
-	} else {
-		echo "<script>
-				alert('username tidak ditemukan');
-		</script>";
-		var_dump($result);
-	}
-}
-
-
+include_once'konek.php';
+include_once'valid_login.php';
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -60,15 +28,60 @@ if (isset($_POST["signin"])) {
 	<link rel="stylesheet" type="text/css" href="css/util-login.css">
 	<link rel="stylesheet" type="text/css" href="css/login.css">
 <!--===============================================================================================-->
+
+ <title>Go_Tani App </title>
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom fonts for this template -->
+    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
+
+    <!-- Plugin CSS -->
+    <link href="vendor/magnific-popup/magnific-popup.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="css/creative.min.css" rel="stylesheet">
+
+
 </head>
 <body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+      <div class="container">
+        <a class="navbar-brand js-scroll-trigger" href="#page-top">Go_tani </a>
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="#about">ketentuan</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="#services">Fitur</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="#portfolio">Galleri</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="#contact">Tentang</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+
 <form action="" method="POST">
 	<div class="limiter">
 		<div class="container-login100" style="background-image: url('img/img-01.jpg');">
 			<div class="wrap-login100 p-b-30">
 				<form class="login100-form validate-form">
 					<span class="login100-form-title p-t-20 p-b-45">
-						Sign In<br>
+						Masuk <br>
 					</span>
                
 					<div class="wrap-input100 validate-input m-b-10" data-validate = "Username is required">
@@ -88,21 +101,19 @@ if (isset($_POST["signin"])) {
 					</div>
 
 					<div class="container-login100-form-btn p-t-10">
-						<button class="login100-form-btn" type="submit" name="signin">
+						<button class="login100-form-btn" type="submit" name="submit" value="Submit">
 							Sign In
 						</button>
 					</div>
                
 					<div class="text-center w-full p-t-25">
-						<p class="txt1">Not a Member? </p><a href="#" class="txt1">Sign Up Now</a>
+						<p class="txt1">Belum Punya Akun? </p><a href="registrasi.php" class="txt1">Daftar Sekarang</a>
 					</div>
 				</form>
 			</div>
 		</div>
 	</div>
 	</form>
-	
-	
 
 	
 <!--===============================================================================================-->	
@@ -114,6 +125,22 @@ if (isset($_POST["signin"])) {
 	<script src="vendor/select2/select2.min.js"></script>
 <!--===============================================================================================-->
 	<script src="js/main.js"></script>
+	
+    <!-- Bootstrap core JavaScript -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
+    <!-- Plugin JavaScript -->
+    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+    <script src="vendor/scrollreveal/scrollreveal.min.js"></script>
+    <script src="vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
+
+    <!-- Custom scripts for this template -->
+    <script src="js/creative.min.js"></script>
+
+
+<?php
+include'footer.php';
+?>
 </body>
 </html>
