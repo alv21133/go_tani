@@ -111,12 +111,7 @@ include_once'save_registrasi.php';
 							Daftar
 						</button>
 					</div>
-<<<<<<< HEAD
 				</form>
-=======
-               </form>
-				</div>
->>>>>>> de70c69bd5313743d3457951b5ca91370beaf882
 			</div>
 		</div>
 	</div>
