@@ -82,7 +82,6 @@ include_once'save_registrasi.php';
 					<span class="login100-form-title p-t-20 p-b-45">
 						Pendaftaran<br>
 					</span>
-               <form action="" method="post">
 					<div class="wrap-input100 validate-input m-b-10" data-validate = "Username is required">
 						<input class="input100" type="text" name="username" placeholder="Username">
 						<span class="focus-input100"></span>
@@ -112,8 +111,12 @@ include_once'save_registrasi.php';
 							Daftar
 						</button>
 					</div>
+<<<<<<< HEAD
+				</form>
+=======
                </form>
 				</div>
+>>>>>>> de70c69bd5313743d3457951b5ca91370beaf882
 			</div>
 		</div>
 	</div>
