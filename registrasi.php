@@ -1,19 +1,25 @@
 <?php 
 
-$host='192.168.100.6';
-$username='root';
-$password='';
-$db='go_tani';
+include_once 'konek.php';
+include_once 'functions.php';
 
-$dbkonek=mysqli_connect("$host","$username","$password","$db");
+// if (isset($_POST["signup"])) {
+	
+// 	if (registrasi($_POST)) {
+// 		echo "<script>
+//             alert('Registrasi Sukses');
+//             window.location.href('signin.php');
+// 			</script>";
+			
+// 	} else {
+// 		echo "<script>
+//             alert('username atau email sudah digunakan');
+//             window.location.href('registrasi.php');
+//          </script>";
+// 	}
+// }
 
-if ($_POST["signup"]) {
-   $username = $_POST['username'];
-   $password = $_POST['password'];
-   $email = $_POST['email'];
-}
-
-?>
+// ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -47,11 +53,10 @@ if ($_POST["signup"]) {
 	<div class="limiter">
 		<div class="container-login100" style="background-image: url('img/img-01.jpg');">
 			<div class="wrap-login100 p-b-30">
-				<form class="login100-form validate-form">
+				<form class="login100-form validate-form" action="" method="post">
 					<span class="login100-form-title p-t-20 p-b-45">
 						Pendaftaran<br>
 					</span>
-               <form action="" method="post">
 					<div class="wrap-input100 validate-input m-b-10" data-validate = "Username is required">
 						<input class="input100" type="text" name="username" placeholder="Username">
 						<span class="focus-input100"></span>
@@ -81,7 +86,6 @@ if ($_POST["signup"]) {
 							Sign Up
 						</button>
 					</div>
-               </form>
 				</form>
 			</div>
 		</div>

@@ -1,5 +1,5 @@
 <?php
-$host='192.168.100.6';
+$host='localhost';
 $username='root';
 $password='';
 $db='go_tani';
