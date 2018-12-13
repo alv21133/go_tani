@@ -2,6 +2,7 @@
   include_once 'konek.php';
   include_once 'analis.php';
   $analisis = analisis($_POST);
+ 
 
 ?>
 
@@ -73,6 +74,7 @@
         </div>
       </div>
     </nav>
+    
     <!--   goolemap -->
     <body>
                <div id="map"></div>
@@ -234,6 +236,10 @@ if (!$suhu==-273.15) {
                       </div>
                     </section>
                       
+<?php
+     var_dump($analisis);
+     ?>
+
       <section id="services">
       <div class="container">
         <div class="row">
