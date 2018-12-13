@@ -1,21 +1,20 @@
 <?php
+session_start();
   include_once 'konek.php';
   include_once 'analis.php';
   $analisis = analisis($_POST);
 
-  if (!empty($analisis)) {
-    $lat = $analisis["latitude"];
-    $long = $analisis["longtitude"];
-    $suhu = $analisis["suhu"];
-    $hujan = $analisis["hujan"];
-    $tanah = $analisis["tanah"];
-    $tinggi = $analisis["tinggi"];
-    $id_user = $_SESSION["id_user"];
-  
-  }
-  
- 
+    foreach ($analisis as $key) {
+          $var[] = $key;
+    }
 
+    $lat =  $var[4];
+    $long =  $var[5];
+    $suhu =  $var[1];
+    $hujan =  $var[0];
+    $tanah =  $var[2];
+    $tinggi =  $var[3];
+    
 ?>
 
 
@@ -91,8 +90,8 @@
     <body>
                <div id="map"></div>
               
-            <input hidden id="lat1" value="<?php echo $analisis['latitude'] ?>"></input>
-            <input hidden  id="long1" value="<?php echo $analisis['longtitude'] ?>"></input>
+            <input hidden  id="lat1" value="<?php echo $analisis['latitude'] ?>"></input>
+            <input  hidden  id="long1" value="<?php echo $analisis['longtitude'] ?>"></input>
            
           
     <script>
@@ -182,8 +181,19 @@ if (!$suhu==-273.15) {
     $hujan=$dbkonek->query("select * from curah_hujan where id_hujan='$analisis[hujan]' ");
     $tanah=$dbkonek->query("select * from tanah where id_tanah='$analisis[tanah]'");
 ?>
+               
+              <?php
+              // var_dump($analisis);
 
-                    <section id="services">
+                 
+                
+                print_r($var);
+                echo $var[0];
+                var_dump($_SESSION["id_user"]);
+                var_dump($_SESSION["user"]);
+            
+              ?>
+               <section id="services">
                       <div class="container">
                         <div class="row">
                           <div class="col-lg-12 text-center">
@@ -307,7 +317,7 @@ if (!$suhu==-273.15) {
           <h5 class="mb-4"> Agar hasil analisis dapat di simpan maka anda terlebih dahulu harus melakukan registrasi , Nantinya hasil analisis akan secara otomatis tersimpan
           pada account anda , dan dapat di buka kembali kapan pun saat anda login.
           </h5>
-          <a class="btn btn-light btn-xl sr-button" href="dashboard.php?hujan=$hujan&amp;suhu=$suhu&amp;tanah=$tanah&amp;tinggi=$tinggi&amp;lat=$lat&amp;long=$long&amp;id_user=$id_user">Simpan</a>
+          <a class="btn btn-light btn-xl sr-button" href="dashboard.php?hujan=<?php echo $var[0]; ?>&amp;suhu=<?php echo $suhu; ?>&amp;tanah=<?php echo $var[2]; ?>&amp;tinggi=<?php echo $tinggi; ?>&amp;lat=<?php echo $lat; ?>&amp;long=<?php echo $long; ?>&amp;">Simpan</a>
         </div>
     </section>
 

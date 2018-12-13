@@ -1,3 +1,6 @@
+<?php 
+session_start();
+?>
 
 <!DOCTYPE html>
 <html>
@@ -69,7 +72,11 @@ error_reporting(0);
             $_SESSION['id_user'] = "$db_id_user";
             
             echo"login sukses;";
-            header("location:index.php");
+            if (isset($_SESSION["ref"])) {
+                header("Location: dashboard.php");
+            } else {
+                header("location:index.php");
+            }
         }else{
                 
             echo "<script type='text/javascript'>
