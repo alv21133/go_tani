@@ -17,7 +17,31 @@ include_once'konek.php';
 </head>
 <body>
     
-        <form action="simpan_gambar.php" method="POST"
-    <input type="text" name=""> </input>
+        <form action="simpan_gambar.php" method="POST"  enctype="multipart/form-data">
+   
+            <select  name="tanaman">
+                <?php 
+                    $query=$dbkonek->query("select nama from tanaman");
+                    while ($data=mysqli_fetch_array($query)) {
+     
+               ?>
+               
+                <option value=" "><?php echo $data['nama']; ?></option>
+                <?php
+                }
+                 ?>
+
+            </select>
+
+
+            <br>
+            <br>
+            <br>
+            <br>
+            <input type="file" name="poto"></input><br>
+            <br>
+            <input type="submit" name="submit" value="submit"></input>
+
+    </form>
 </body>
 </html>
