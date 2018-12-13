@@ -235,10 +235,6 @@ if (!$suhu==-273.15) {
                         </div>
                       </div>
                     </section>
-                      
-<?php
-     var_dump($analisis);
-     ?>
 
       <section id="services">
       <div class="container">
@@ -268,7 +264,7 @@ if (!$suhu==-273.15) {
 
                             <div class="col-lg-3 col-md-6 text-center">
                               <div class="service-box mt-5 mx-auto">
-                              <img  width="252"  class="fas fa-4x text-primary mb-3 sr-icon-3" src="https://img.over-blog-kiwi.com/2/12/87/31/20170925/ob_597d6e_5-manfaat-kesehatan-fantastis-dari-kub.png"></img>
+                              <img  width="252"  class="fas fa-4x text-primary mb-3 sr-icon-3" src="tanaman/<?php echo $data['gambar']; ?>"></img>
                                 <h3 class="mb-3"><?php echo $data['nama']; ?></h3>
                                 <p class="text-muted mb-0"><h3>Rp<?php echo $data['harga']; ?></h3></p>
                               </div>
