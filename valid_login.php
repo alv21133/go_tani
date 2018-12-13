@@ -60,11 +60,13 @@ error_reporting(0);
         while ($result=mysqli_fetch_array($query)) {
             $db_p=$result['password'];
             $db_u=$result['username'];
+            $db_id_user = $result['id_user'];
         }
         if(password_verify($pass,$db_p)){
 
             $_SESSION["user"]="$user";
             $_SESSION["pass"]="$pass";
+            $_SESSION['id_user'] = "$db_id_user";
             
             echo"login sukses;";
             header("location:index.php");

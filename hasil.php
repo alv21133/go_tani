@@ -2,6 +2,18 @@
   include_once 'konek.php';
   include_once 'analis.php';
   $analisis = analisis($_POST);
+
+  if (!empty($analisis)) {
+    $lat = $analisis["latitude"];
+    $long = $analisis["longtitude"];
+    $suhu = $analisis["suhu"];
+    $hujan = $analisis["hujan"];
+    $tanah = $analisis["tanah"];
+    $tinggi = $analisis["tinggi"];
+    $id_user = $_SESSION["id_user"];
+  
+  }
+  
  
 
 ?>
@@ -298,9 +310,8 @@ if (!$suhu==-273.15) {
           <h2 class="mb-4">Simpan Hasil Ananlisis Lokasi Anda</h2>
           <h5 class="mb-4"> Agar hasil analisis dapat di simpan maka anda terlebih dahulu harus melakukan registrasi , Nantinya hasil analisis akan secara otomatis tersimpan
           pada account anda , dan dapat di buka kembali kapan pun saat anda login.
-          
           </h5>
-          <a class="btn btn-light btn-xl sr-button" href="signin.php">Simpan</a>
+          <a class="btn btn-light btn-xl sr-button" href="dashboard.php?hujan=$hujan&amp;suhu=$suhu&amp;tanah=$tanah&amp;tinggi=$tinggi&amp;lat=$lat&amp;long=$long&amp;id_user=$id_user">Simpan</a>
         </div>
     </section>
 

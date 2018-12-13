@@ -59,7 +59,6 @@ include_once'konek.php';
                 $tmp_id2=$tmp_id+1;
                 $new_id="U".strval($tmp_id2);
                             $advance=[
-
                                         'cost'=>11,
                                     ];
 

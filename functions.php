@@ -9,49 +9,30 @@ include_once 'konek.php';
 
 // $dbkonek= mysqli_connect("$host","$username","$password","$db");
 
-function registrasi($data) {
-
+function addHistory($data) {
    global $dbkonek;
 
-   $count = mysqli_query($dbkonek, "SELECT count(*) as total FROM user");
+   $lat = $data["latitude"];
+   $long = $data["longtitude"];
+   $suhu = $data["suhu"];
+   $hujan = $data["hujan"];
+   $tanah = $data["tanah"];
+   $tinggi = $data["tinggi"];
+   $id_user = $data["id_user"];
 
-   $count = mysqli_fetch_assoc($count);
+   $cek = mysqli_query($dbkonek, "SELECT right (id_history, 1) as last FROM history ORDER BY id_history DESC LIMIT 1");
+   while ($id = mysqli_fetch_array($cek)) {
+      $tmp_id = $id["last"];
+   }
 
-   var_dump($count);
+   $tmp_id += 1;
+   $new_id = "H" . srtval($tmp_id);
 
-   $id_user = "U" . ($count["total"] + 1);
-   $username = strtolower(stripcslashes($data["username"]));
-   $password = strtolower(stripcslashes($data["password"]));
-   $email = strtolower(stripcslashes($data["email"]));
+   $query = "INSERT INTO `history`(`id_history`, `id_user`, `hujan`, `suhu`, `tanah`, `tinggi`, `lat`, `lng`, `time`) VALUES ('$new_id', '$id_user', '$hujan', '$suhu', '$tanah', '$tinggi', '$lat', '$long', 'date(DATE_ATOM, time())')";
 
-   var_dump($id_user);
+   mysqli_query($dbkonek, $query);
 
-   $password = password_hash($password, PASSWORD_DEFAULT);
-
-   //$query = "INSERT INTO user VALUES ('$id_user', '$username', '$password', '$email')";
-   //$query = "INSERT INTO `user`(`id_user`, `username`, `password`, `email`) VALUES ('$id_user', '$username', '$password', '$email')";
-   //var_dump($query);
-   // if (mysqli_num_rows($usernasme_check_available) > 0) {
-   //    return false;
-   // } elseif (mysqli_num_rows($email_check_available) > 0) {
-   //    return false;
-   // } else {
-      // mysqli_query($dbkonek, $query);
-      
- var_dump($id_user);
-      $insert=$dbkonek->query("insert into user  VALUES ('$id_user','$username', '$password', '$email')");
-
-      if($insert){
-         
-         echo"sukses";
-         return true;
-
-      }else {
-         echo"error insert";
-      }
-                
-
-   //}
+   return mysqli_affected_rows($dbkonek);
 }
 
 ?>
