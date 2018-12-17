@@ -14,6 +14,8 @@ session_start();
     $hujan =  $var[0];
     $tanah =  $var[2];
     $tinggi =  $var[3];
+
+    error_reporting(0);
     
 ?>
 
@@ -183,14 +185,14 @@ if (!$suhu==-273.15) {
 ?>
                
               <?php
-              // var_dump($analisis);
+             
 
                  
                 
-                print_r($var);
-                echo $var[0];
-                var_dump($_SESSION["id_user"]);
-                var_dump($_SESSION["user"]);
+                // // print_r($var);
+                // // echo $var[0];
+                // var_dump($_SESSION["id_user"]);
+                // var_dump($_SESSION["user"]);
             
               ?>
                <section id="services">
@@ -287,8 +289,8 @@ if (!$suhu==-273.15) {
                             <div class="col-lg-3 col-md-6 text-center">
                               <div class="service-box mt-5 mx-auto">
                               <img  width="252"  class="fas fa-4x text-primary mb-3 sr-icon-3" src="tanaman/<?php echo $data['gambar']; ?>"></img>
-                                <h3 class="mb-3"><?php echo $data['nama']; ?></h3>
-                                <p class="text-muted mb-0"><h3>Rp<?php echo $data['harga']; ?></h3></p>
+                                <h3 class="mb-3 font-weight-bold"><?php echo $data['nama']; ?></h3>
+                                <p class="text-muted mb-0"><h5>Lama Panen <?php echo $data['waktu_panen']; ?> hari</h5></p>
                               </div>
                             </div>
                           <?php
@@ -307,6 +309,7 @@ if (!$suhu==-273.15) {
                     
                       ?>
 
+                     
           </div>
                 </div>
               </section>
@@ -317,6 +320,9 @@ if (!$suhu==-273.15) {
           <h5 class="mb-4"> Agar hasil analisis dapat di simpan maka anda terlebih dahulu harus melakukan registrasi , Nantinya hasil analisis akan secara otomatis tersimpan
           pada account anda , dan dapat di buka kembali kapan pun saat anda login.
           </h5>
+          <?php
+          $_SESSION['url']="dashboard.php?hujan=".$var[0]."&suhu=".$suhu."&tanah=".$var[2]."&tinggi=".$tinggi."&lat=".$lat."&long=".$long."";
+          ?>
           <a class="btn btn-light btn-xl sr-button" href="dashboard.php?hujan=<?php echo $var[0]; ?>&amp;suhu=<?php echo $suhu; ?>&amp;tanah=<?php echo $var[2]; ?>&amp;tinggi=<?php echo $tinggi; ?>&amp;lat=<?php echo $lat; ?>&amp;long=<?php echo $long; ?>&amp;">Simpan</a>
         </div>
     </section>
