@@ -52,7 +52,7 @@ if ($_SESSION["user"] == null){
                     $new_id = "H" . strval($tmp_id);
 
                     
-                    //    $query =$dbkonek->query("INSERT INTO history VALUES ('$new_id', '$id_user', '$hujan', '$suhu', '$tanah', '$tinggi', '$lat', '$long','$time')");
+                     $query =$dbkonek->query("INSERT INTO history VALUES ('$new_id', '$id_user', '$hujan', '$suhu', '$tanah', '$tinggi', '$lat', '$long','$time')");
 
                         
 
@@ -131,7 +131,7 @@ if ($_SESSION["user"] == null){
                                                         </h6>
 
                                                         <?php
-                                                        echo $new_id_user;
+                                                        
 
                                                         $get=$dbkonek->query("select * from history where id_user='$new_id_user'");
                                                                                                                         
@@ -150,7 +150,21 @@ if ($_SESSION["user"] == null){
                                             </div>
                                         </div>
                                         <div class="col-md-2">
-                                            <input type="submit" class="profile-edit-btn" name="btnAddMore" value="Edit Profile"/>
+                                                    <form action=" " method="POST">
+                                                        <input type="submit" class="profile-edit-btn" name="keluar" value="Keluar"></input>
+                                                     </form>
+                                                     <?php
+
+                                                        if(isset($_POST['keluar'])){
+
+                                                            session_destroy();
+                                                        
+                                                            
+                                                            
+                                                        }
+
+                                                     ?>
+                                                    
                                         </div>
                                     </div>
                                     <div class="row">
@@ -179,7 +193,7 @@ if ($_SESSION["user"] == null){
                                                                                             <p class="card-text"><?php echo "Latitude : ".round($dat['lat'],3), " Lotitude : ".round($dat['lng'],4) ?></p>
                                                                                             <a href="#" class="btn btn-primary">BUKA</a>
                                                                                         </div>
-                                                                                        <div class="card-footer text-black ">
+                                                                                        <div class="card-footer text-black fab fa-twitter ">
                                                                                             <?php
                                                                                                 echo "Dilakukan Pada Tanggal : ".date("d-m-Y", strtotime($dat['time']));
                                                                                             ?>
@@ -187,9 +201,7 @@ if ($_SESSION["user"] == null){
 
                                                                                         </div>
                                                                                 </div>
-                                                                                        
-                                                                            <a class="btn-floating btn-tw btn-sm">BUKA <i class="fab fa-twitter"></i></a><?php echo "Latitude : ".round($dat['lat'],3), " Lotitude : ".round($dat['lng'],4)."   Tanggal : ".date("d-m-Y", strtotime($dat['time']))?>
-                                                                        --> </li> 
+                                                                            </li> 
                                                                         <?php
                                                                                  }
 
