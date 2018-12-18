@@ -3,6 +3,7 @@
 
 include_once'konek.php';
 include_once'valid_login.php';
+error_reporting(0);
 ?>
 <!DOCTYPE html>
 <html lang="en">

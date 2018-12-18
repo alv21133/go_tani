@@ -3,6 +3,7 @@
 <?php 
 session_start();
 include 'konek.php';
+error_reporting(0);
 if ($_SESSION["user"] == null){
     
                             //var_dump($_GET); 
