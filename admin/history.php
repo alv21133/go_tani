@@ -259,7 +259,7 @@ while ( $row = mysqli_fetch_assoc($result)) {
                                 <?php if(isset($rows)){ ?>
                                     <?php $i = 1; foreach ($rows as $row) :?>
                                     <tr>
-                                        <th scope="row"><?= $i;?></th>
+                                        <th scope="row"><?= $i;$i++?></th>
                                         <td><?= $row['id_history']?></td>
                                         <td><?= $row['lat']?></td>
                                         <td><?= $row['lng']?></td>
