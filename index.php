@@ -101,28 +101,28 @@
             <div class="service-box mt-5 mx-auto">
               <i class="fas fa-4x fa-gem text-primary mb-3 sr-icon-1"></i>
               <h3 class="mb-3">Analisis Lokasi Anda</h3>
-              <p class="text-muted mb-0">Our templates are updated regularly so they don't break.</p>
+              <p class="text-muted mb-0">Temukan tanaman yang tepat di tanam di lokasi anda saat ini</p>
             </div>
           </div>
           <div class="col-lg-3 col-md-6 text-center">
             <div class="service-box mt-5 mx-auto">
               <i class="fas fa-4x fa-paper-plane text-primary mb-3 sr-icon-2"></i>
               <h3 class="mb-3">Isi Semua Form</h3>
-              <p class="text-muted mb-0">You can use this theme as is, or you can make changes!</p>
+              <p class="text-muted mb-0">Ikuti petunjuk yang muncul pada sistem kami</p>
             </div>
           </div>
           <div class="col-lg-3 col-md-6 text-center">
             <div class="service-box mt-5 mx-auto">
               <i class="fas fa-4x fa-code text-primary mb-3 sr-icon-3"></i>
               <h3 class="mb-3">Temukan Tanaman</h3>
-              <p class="text-muted mb-0">We update dependencies to keep things fresh.</p>
+              <p class="text-muted mb-0">Lihat hasil analisi berupa tanaman yang tepat dalam lokasi anda .</p>
             </div>
           </div>
           <div class="col-lg-3 col-md-6 text-center">
             <div class="service-box mt-5 mx-auto">
               <i class="fas fa-4x fa-heart text-primary mb-3 sr-icon-4"></i>
               <h3 class="mb-3">Save Hasil Analisis</h3>
-              <p class="text-muted mb-0">You have to make your websites with love these days!</p>
+              <p class="text-muted mb-0">Simpan Hasil Analisi pada account anda, jika belum punya silahkan daftar terlebih dahulu</p>
             </div>
           </div>
         </div>
@@ -133,90 +133,90 @@
       <div class="container-fluid p-0">
         <div class="row no-gutters popup-gallery">
           <div class="col-lg-4 col-sm-6">
-            <a class="portfolio-box" href="img/portfolio/fullsize/1.jpg">
-              <img class="img-fluid" src="img/portfolio/thumbnails/1.jpg" alt="">
+            <a class="portfolio-box" href="tanaman/5.bayam-png-3.png   ">
+              <img class="img-fluid" src="tanaman/5.bayam-png-3.png   " alt="">
               <div class="portfolio-box-caption">
                 <div class="portfolio-box-caption-content">
                   <div class="project-category text-faded">
-                    Category
+                   Sayuran
                   </div>
                   <div class="project-name">
-                    Project Name
+                    Bayam
                   </div>
                 </div>
               </div>
             </a>
           </div>
           <div class="col-lg-4 col-sm-6">
-            <a class="portfolio-box" href="img/portfolio/fullsize/2.jpg">
-              <img class="img-fluid" src="img/portfolio/thumbnails/2.jpg" alt="">
+            <a class="portfolio-box" href="tanaman/16potatoes-2829118_960_720.png">
+              <img class="img-fluid" src="tanaman/16potatoes-2829118_960_720.png" alt="">
               <div class="portfolio-box-caption">
                 <div class="portfolio-box-caption-content">
                   <div class="project-category text-faded">
-                    Category
+                    Sayuran
                   </div>
                   <div class="project-name">
-                    Project Name
+                    Kentang
                   </div>
                 </div>
               </div>
             </a>
           </div>
           <div class="col-lg-4 col-sm-6">
-            <a class="portfolio-box" href="img/portfolio/fullsize/3.jpg">
-              <img class="img-fluid" src="img/portfolio/thumbnails/3.jpg" alt="">
+            <a class="portfolio-box" href="tanaman/13buncis-png.png">
+              <img class="img-fluid" src="tanaman/13buncis-png.png" alt="">
               <div class="portfolio-box-caption">
                 <div class="portfolio-box-caption-content">
                   <div class="project-category text-faded">
-                    Category
+                    Sayuran 
                   </div>
                   <div class="project-name">
-                    Project Name
+                    Buncis
                   </div>
                 </div>
               </div>
             </a>
           </div>
           <div class="col-lg-4 col-sm-6">
-            <a class="portfolio-box" href="img/portfolio/fullsize/4.jpg">
-              <img class="img-fluid" src="img/portfolio/thumbnails/4.jpg" alt="">
+            <a class="portfolio-box" href="tanaman/19.png-pisang-pisang-berkakhasiat-kurangi-depresi-640.png ">
+              <img class="img-fluid" src="tanaman/19.png-pisang-pisang-berkakhasiat-kurangi-depresi-640.png " alt="">
               <div class="portfolio-box-caption">
                 <div class="portfolio-box-caption-content">
                   <div class="project-category text-faded">
-                    Category
+                    Buah
                   </div>
                   <div class="project-name">
-                    Project Name
+                    Pisang
                   </div>
                 </div>
               </div>
             </a>
           </div>
           <div class="col-lg-4 col-sm-6">
-            <a class="portfolio-box" href="img/portfolio/fullsize/5.jpg">
-              <img class="img-fluid" src="img/portfolio/thumbnails/5.jpg" alt="">
+            <a class="portfolio-box" href="tanaman/12Cabe.png">
+              <img class="img-fluid" src="tanaman/12Cabe.png" alt="">
               <div class="portfolio-box-caption">
                 <div class="portfolio-box-caption-content">
                   <div class="project-category text-faded">
-                    Category
+                    Sayuran
                   </div>
                   <div class="project-name">
-                    Project Name
+                    Cabai
                   </div>
                 </div>
               </div>
             </a>
           </div>
           <div class="col-lg-4 col-sm-6">
-            <a class="portfolio-box" href="img/portfolio/fullsize/6.jpg">
-              <img class="img-fluid" src="img/portfolio/thumbnails/6.jpg" alt="">
+            <a class="portfolio-box" href="tanaman/60.sau-rieng-ri-6-ngon-gia-re.png">
+              <img class="img-fluid" src="tanaman/60.sau-rieng-ri-6-ngon-gia-re.png" alt="">
               <div class="portfolio-box-caption">
                 <div class="portfolio-box-caption-content">
                   <div class="project-category text-faded">
-                    Category
+                    Buah
                   </div>
                   <div class="project-name">
-                    Project Name
+                    Durian
                   </div>
                 </div>
               </div>
@@ -282,8 +282,7 @@
           <div class="col-lg-8 mx-auto text-center">
             <h2 class="section-heading">Kelompok GO_TANI</h2>
             <hr class="my-4">
-            <p class="mb-5">Kelompok final project pemrograman web lanjut , sed do eiusmod
-            tempor incididunt ut labore et dolore magna aliqua. </p>
+            <p class="mb-5">Kelompok final project pemrograman web lanjut , Sistem penunjang keputusan bagi para petani guna memaksimalkan hasil panen. </p>
           </div>
         </div>
         <div class="row">
@@ -299,7 +298,7 @@
           <div class="col-lg-4 mr-auto text-center">
             <i class="fas fa-envelope fa-3x mb-3 sr-contact-2"></i>
             <p>
-              <a href="mailto:your-email@your-domain.com">feedback@startbootstrap.com</a>
+              <a href="mailto:your-email@your-domain.com">alv.21133@mail.com</a>
             </p>
           </div>
         </div>
