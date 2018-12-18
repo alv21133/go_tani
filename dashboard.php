@@ -4,7 +4,7 @@ session_start();
 include 'konek.php';
 // include 'functions.php';
 
-// error_reporting(0);
+error_reporting(0);
 
 
 if ($_SESSION["user"] == null){
