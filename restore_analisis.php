@@ -1,23 +1,32 @@
 <?php
 session_start();
   include_once 'konek.php';
-  include_once 'analis.php';
-  $analisis = analisis($_POST);
+//include_once 'analis.php';
 
-    foreach ($analisis as $key) {
-          $var[] = $key;
-    }
 
-    $lat =  $var[4];
-    $long =  $var[5];
-    $suhu =  $var[1];
-    $hujan =  $var[0];
-    $tanah =  $var[2];
-    $tinggi =  $var[3];
+//   $analisis = analisis($_POST);
 
-    error_reporting(0);
+//     foreach ($analisis as $key) {
+//           $var[] = $key;
+//     }
+
+    $id_his=$_GET['req'];
     
-?>
+
+        $get_his=$dbkonek->query("select * from history where id_history='$id_his'");
+
+            $res=mysqli_fetch_array($get_his); 
+
+            $lat11 =  $res['lat'];
+            $long11 =  $res['lng'];
+            $suhu =  $res['suhu'];
+            $hujan =  $res['hujan'];
+            $tanah =  $res['tanah'];
+            $tinggi =  $res['tinggi'];
+                
+            
+        //error_reporting(0); 
+    ?>
 
 
 <!DOCTYPE html>
@@ -91,10 +100,9 @@ session_start();
     <!--   goolemap -->
     <body>
                <div id="map"></div>
-              
-            <input hidden  id="lat1" value="<?php echo $analisis['latitude'] ?>"></input>
-            <input  hidden  id="long1" value="<?php echo $analisis['longtitude'] ?>"></input>
-           
+               <?php
+             echo $id_his;
+           ?>
           
     <script>
 
@@ -106,7 +114,7 @@ session_start();
       function initMap() {
         var map = new google.maps.Map(document.getElementById('map'), {
           zoom: 13,
-          center: {lat:<?php echo $analisis['latitude'] ?>, lng: <?php echo $analisis['longtitude'] ?>}
+          center: {lat:<?php echo $lat11 ?>, lng: <?php echo $long11 ?>}
         });
 
         marker = new google.maps.Marker({
@@ -114,7 +122,7 @@ session_start();
           draggable: true,
           animation: google.maps.Animation.DROP,
           animation: google.maps.Animation.BOUNCE,
-          position: {lat:<?php echo $analisis['latitude'] ?>, lng: <?php echo $analisis['longtitude'] ?>}
+          position: {lat:<?php echo $lat11 ?>, lng: <?php echo $long11 ?>}
         });
         marker.addListener('click', toggleBounce);
       }
@@ -135,8 +143,9 @@ session_start();
 
 //$name = $_GET['name'];
 //$address = $_GET['address'];
-$lat = $_POST['latitude'];
-$lng = $_POST['longtitude'];
+$lat = $lat11 ;
+$lng = $long11;
+            
 
 //$type = $_GET['type'];
 
@@ -180,8 +189,8 @@ $ketinggian=round( $resultJson2["results"][0]["elevation"]/10,2) ;
 if (!$suhu==-273.15) {
     header("location:input.php");
 }
-    $hujan=$dbkonek->query("select * from curah_hujan where id_hujan='$analisis[hujan]' ");
-    $tanah=$dbkonek->query("select * from tanah where id_tanah='$analisis[tanah]'");
+    $hujan=$dbkonek->query("select * from curah_hujan where id_hujan='$hujan' ");
+    $tanah=$dbkonek->query("select * from tanah where id_tanah='$tanah'");
 ?>
                
               <?php
@@ -220,7 +229,7 @@ if (!$suhu==-273.15) {
                             <div class="service-box mt-5 mx-auto">
                               <i class="fas fa-4x fa-map-marked-alt text-primary mb-3  sr-icon-2"></i>
                               <h3 class="mb-3">Ketinggian Anda :</h3>
-                                <h2  class="text-muted mb-0"><?php echo $ketinggian?> Mdpl</h2>
+                                <h2  class="text-muted mb-0"><?php echo $ketinggian ."Mdpl"?></h2>
                             </div>
                           </div>
                           <div class="col-lg-3 col-md-6 text-center">
@@ -264,7 +273,7 @@ if (!$suhu==-273.15) {
       <div class="container">
         <div class="row">
           <div class="col-lg-12 text-center">
-            <h2 class="section-heading">Tanaman Yang Potensial di Daerah Anda!</h2>
+            <h2 class="section-heading">Tanaman Yang Potensial di Daerah ini !</h2>
             <hr class="my-4">
           </div>
         </div>
@@ -277,11 +286,11 @@ if (!$suhu==-273.15) {
 
 
 <!-- hasil analisi farward chaining  -->
-
  <?php 
-                  $tanaman=$dbkonek->query("select * from tanaman WHERE  ketinggian = '$analisis[tinggi]' AND jenis_tanah = '$analisis[tanah]' AND suhu = '$analisis[suhu]' OR curah_hujan = '$analisis[hujan]'");
-                  $d_row=mysqli_num_rows($tanaman);            
-                  
+ 
+                  $tanaman=$dbkonek->query("select * from tanaman WHERE  ketinggian = '$res[5]' AND jenis_tanah = '$res[4]' AND suhu = '$res[3]' OR curah_hujan = '$res[2]'");
+                  $d_row=mysqli_num_rows($tanaman);  
+                                              
                   if ($d_row != 0) {
                         while ($data=mysqli_fetch_array($tanaman)){       
                           ?>
@@ -314,25 +323,7 @@ if (!$suhu==-273.15) {
                 </div>
               </section>
       
-      <section class="bg-secondary text-white">
-        <div class="container text-center">
-          <h2 class="mb-4">Simpan Hasil Ananlisis Lokasi Anda</h2>
-          <h5 class="mb-4"> Agar hasil analisis dapat di simpan maka anda terlebih dahulu harus melakukan registrasi , Nantinya hasil analisis akan secara otomatis tersimpan
-          pada account anda , dan dapat di buka kembali kapan pun saat anda login.
-          </h5>
-          <?php
-          $_SESSION['url']="dashboard.php?hujan=".$var[0]."&suhu=".$suhu."&tanah=".$var[2]."&tinggi=".$tinggi."&lat=".$lat."&long=".$long."";
-          ?>
-          <a class="btn btn-light btn-xl sr-button" href="save_history.php?hujan=<?php echo $var[0]; ?>&amp;suhu=<?php echo $suhu; ?>&amp;tanah=<?php echo $var[2]; ?>&amp;tinggi=<?php echo $tinggi; ?>&amp;lat=<?php echo $lat; ?>&amp;long=<?php echo $long; ?>&amp;">Simpan</a>
-        </div>
-    </section>
-
-      <section class="bg-white text-black">
-        <div class="container text-center">
-          
-        </div>
-    </section>
-
+      
 <?php
 include_once 'footer.php';
 ?>

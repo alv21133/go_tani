@@ -2,14 +2,14 @@
 
 session_start();
 include 'konek.php';
-include 'functions.php';
+// include 'functions.php';
 
-error_reporting(0);
+// error_reporting(0);
 
 
 if ($_SESSION["user"] == null){
     
-                            //var_dump($_GET); 
+//                             //var_dump($_GET); 
                         
                             $_SESSION["ref"] = 'dashboard.php';
                             echo "<script>
@@ -21,44 +21,44 @@ if ($_SESSION["user"] == null){
                         
 
                     
-                        $lat  =    $_GET["lat"];
-                        $long =   $_GET["long"];
-                        $suhu =   $_GET["suhu"];
-                        $hujan =  $_GET["hujan"];
-                        $tanah =  $_GET["tanah"];
-                        $tinggi = $_GET["tinggi"];
+//                         $lat  =    $_GET["lat"];
+//                         $long =   $_GET["long"];
+//                         $suhu =   $_GET["suhu"];
+//                         $hujan =  $_GET["hujan"];
+//                         $tanah =  $_GET["tanah"];
+//                         $tinggi = $_GET["tinggi"];
                         
                     
-                        //   $lat = $_SESSION["latitude"];
-                        //   $long = $_SESSION["longtitude"];
-                        //   $suhu = $_SESSION["suhu"];
-                        //   $hujan = $_SESSION["hujan"];
-                        //   $tanah = $_SESSION["tanah"];
-                        //   $tinggi = $_SESSION["tinggi"];
-                        $id_user = $_SESSION["id_user"];
+//                         //   $lat = $_SESSION["latitude"];
+//                         //   $long = $_SESSION["longtitude"];
+//                         //   $suhu = $_SESSION["suhu"];
+//                         //   $hujan = $_SESSION["hujan"];
+//                         //   $tanah = $_SESSION["tanah"];
+//                         //   $tinggi = $_SESSION["tinggi"];
+//                         $id_user = $_SESSION["id_user"];
 
                     
-                    $time_tmp=$dbkonek->query("select now() as waktu");
+//                     $time_tmp=$dbkonek->query("select now() as waktu");
                         
-                    while ($rs=mysqli_fetch_array($time_tmp)) {
-                        $time=$rs['waktu'];
-                    }
+//                     while ($rs=mysqli_fetch_array($time_tmp)) {
+//                         $time=$rs['waktu'];
+//                     }
 
-                    //    $cek = mysqli_query($dbkonek, "SELECT right (id_history, 1) as last FROM history ORDER BY id_history DESC LIMIT 1");
-                    //    $tmp_id = 0;
-                    //    while ($id = mysqli_fetch_array($cek)) {
-                    //       $tmp_id = $id["last"];
-                    //    }
+//                     //    $cek = mysqli_query($dbkonek, "SELECT right (id_history, 1) as last FROM history ORDER BY id_history DESC LIMIT 1");
+//                     //    $tmp_id = 0;
+//                     //    while ($id = mysqli_fetch_array($cek)) {
+//                     //       $tmp_id = $id["last"];
+//                     //    }
 
-                    $tmp_id =uniqid();
-                    $new_id = "H" . strval($tmp_id);
+//                     $tmp_id =uniqid();
+//                     $new_id = "H" . strval($tmp_id);
 
-                    if ($_GET != null) {
-                     $query =$dbkonek->query("INSERT INTO history VALUES ('$new_id', '$id_user', '$hujan', '$suhu', '$tanah', '$tinggi', '$lat', '$long','$time')");
-                    }
+//                     if ($_SESSION['url']!= null ) {
+//                      $query =$dbkonek->query("INSERT INTO history VALUES ('$new_id', '$id_user', '$hujan', '$suhu', '$tanah', '$tinggi', '$lat', '$long','$time')");
+//                     }
                         
 
-                    ?>
+//                     ?>
 
                     <!DOCTYPE html>
                     <html>
@@ -182,9 +182,7 @@ if ($_SESSION["user"] == null){
                                                                     <ul class="list-group">
                                                                         <?php
                                                                              while ($dat=mysqli_fetch_array($get)) {
-
-                                                                            
-                                                                            ?>
+                                                                           ?>
                                                                         <li class="list-group-item">
                                                                         <div class="card text-center">
                                                                                         <div class="card-header bg-dark text-white">
@@ -193,14 +191,13 @@ if ($_SESSION["user"] == null){
                                                                                         <div class="card-body">
                                                                                             <h5 class="card-title">Lokasi Analisa :</h5>
                                                                                             <p class="card-text"><?php echo "Latitude : ".round($dat['lat'],3), " Lotitude : ".round($dat['lng'],4) ?></p>
-                                                                                            <a href="#" class="btn btn-primary">BUKA</a>
+                                                                                            <a href="restore_analisis.php?req=<?php echo $dat['id_history']?> " class="btn btn-info ">BUKA</a>
+                                                                                            <a href="hapus_history.php?@xq%=<?php echo $dat['id_history'] ?>" onclick="return confirm('History Akan di Hapus..?');" return class="btn btn-primary ">HAPUS</a>
                                                                                         </div>
                                                                                         <div class="card-footer text-black fab fa-twitter ">
                                                                                             <?php
                                                                                                 echo "Dilakukan Pada Tanggal : ".date("d-m-Y", strtotime($dat['time']));
                                                                                             ?>
-
-
                                                                                         </div>
                                                                                 </div>
                                                                             </li> 

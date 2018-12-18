@@ -103,8 +103,8 @@
                         <span aria-hidden="true">&times;</span>
                       </button>
                     </div>
-                    <div class="modal-body">
-                      Jika da kotak dialog penggunana GPS maka klik ijinkan atau allow
+                    <div class="modal-body text-center">
+                      Jika da kotak dialog penggunana GPS maka klik ijinkan atau Allow !
                     </div>
                     <div class="modal-footer">
                       <button type="button" class="btn btn-Danger" onclick="getLocation()" data-dismiss="modal">Mengerti</button>
