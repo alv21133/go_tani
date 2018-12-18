@@ -72,10 +72,10 @@ error_reporting(0);
             $_SESSION['id_user'] = "$db_id_user";
             
             echo"login sukses;";
-            if (isset($_SESSION["ref"])) {
-                header("Location: dashboard.php");
+            if (isset($_SESSION["url"])) {
+                header("Location: ".$_SESSION["url"]);
             } else {
-                header("location:index.php");
+                header("location:dashboard.php");
             }
         }else{
                 
