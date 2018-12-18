@@ -75,7 +75,7 @@ error_reporting(0);
             if (isset($_SESSION["url"])) {
                 header("Location: ".$_SESSION["url"]);
             } else {
-                header("location:index.php");
+                header("location:dashboard.php");
             }
         }else{
                 

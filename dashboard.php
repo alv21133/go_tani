@@ -4,9 +4,11 @@ session_start();
 include 'konek.php';
 include 'functions.php';
 
+error_reporting(0);
 
 
 if ($_SESSION["user"] == null){
+    
                             //var_dump($_GET); 
                         
                             $_SESSION["ref"] = 'dashboard.php';
@@ -51,9 +53,9 @@ if ($_SESSION["user"] == null){
                     $tmp_id =uniqid();
                     $new_id = "H" . strval($tmp_id);
 
-                    
+                    if ($_GET != null) {
                      $query =$dbkonek->query("INSERT INTO history VALUES ('$new_id', '$id_user', '$hujan', '$suhu', '$tanah', '$tinggi', '$lat', '$long','$time')");
-
+                    }
                         
 
                     ?>
@@ -159,7 +161,7 @@ if ($_SESSION["user"] == null){
 
                                                             session_destroy();
                                                         
-                                                            
+                                                            echo"<script>window.location.href='signin.php'</script>";
                                                             
                                                         }
 
@@ -189,7 +191,7 @@ if ($_SESSION["user"] == null){
                                                                                            Hasil Analisa
                                                                                         </div>
                                                                                         <div class="card-body">
-                                                                                            <h5 class="card-title">Lokasi</h5>
+                                                                                            <h5 class="card-title">Lokasi Analisa :</h5>
                                                                                             <p class="card-text"><?php echo "Latitude : ".round($dat['lat'],3), " Lotitude : ".round($dat['lng'],4) ?></p>
                                                                                             <a href="#" class="btn btn-primary">BUKA</a>
                                                                                         </div>

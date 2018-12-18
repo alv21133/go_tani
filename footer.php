@@ -4,7 +4,11 @@
    
    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
  <link href="vendor/magnific-popup/magnific-popup.css" rel="stylesheet">
+   <!-- Plugin CSS -->
+    <link href="vendor/magnific-popup/magnific-popup.css" rel="stylesheet">
 
+    <!-- Custom styles for this template -->
+    <link href="css/creative.min.css" rel="stylesheet">
    
     <section id="contact" class="bg-dark text-white" >
       <div class="container">
